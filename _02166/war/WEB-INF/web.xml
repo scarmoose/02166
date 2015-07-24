@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+	<servlet>
+		<servlet-name>operatoerServlet</servlet-name>
+		<servlet-class>edu.server.impl.MySQLOperatoerDAO</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>operatoerServlet</servlet-name>
+		<url-pattern>/_8_cdiofinal/loginservice</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>aseServlet</servlet-name>
+		<servlet-class>edu.server.impl.ASE</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>aseServlet</servlet-name>
+		<url-pattern>/_8_cdiofinal/aseservice</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>metaServlet</servlet-name>
+		<servlet-class>edu.server.impl.MetaDAO</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>metaServlet</servlet-name>
+		<url-pattern>/_8_cdiofinal/metaservice</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>coinServlet</servlet-name>
+		<servlet-class>edu.server.impl.CoinDAO</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>coinServlet</servlet-name>
+		<url-pattern>/_8_cdiofinal/coinservice</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>fruitServlet</servlet-name>
+		<servlet-class>edu.server.impl.FruitDAO</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fruitServlet</servlet-name>
+		<url-pattern>/_8_cdiofinal/fruitservice</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>condimentsServlet</servlet-name>
+		<servlet-class>edu.server.impl.CondimentsDAO</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>condimentsServlet</servlet-name>
+		<url-pattern>/_8_cdiofinal/condimentsservice</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>batchServlet</servlet-name>
+		<servlet-class>edu.server.impl.BatchDAO</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>batchServlet</servlet-name>
+		<url-pattern>/_8_cdiofinal/batchservice</url-pattern>
+	</servlet-mapping>
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>_02166.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>
