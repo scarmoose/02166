@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         version="2.5"
+              http://java.sun.com/xml/ns/javaee/web-app_2_6.xsd"
+         version="2.6"
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
@@ -12,7 +12,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>operatoerServlet</servlet-name>
-		<url-pattern>/_8_cdiofinal/loginservice</url-pattern>
+		<url-pattern>/_02166/loginservice</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -21,7 +21,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>aseServlet</servlet-name>
-		<url-pattern>/_8_cdiofinal/aseservice</url-pattern>
+		<url-pattern>/_02166/aseservice</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -30,7 +30,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>metaServlet</servlet-name>
-		<url-pattern>/_8_cdiofinal/metaservice</url-pattern>
+		<url-pattern>/_02166/metaservice</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -39,7 +39,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>coinServlet</servlet-name>
-		<url-pattern>/_8_cdiofinal/coinservice</url-pattern>
+		<url-pattern>/_02166/coinservice</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -48,7 +48,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>fruitServlet</servlet-name>
-		<url-pattern>/_8_cdiofinal/fruitservice</url-pattern>
+		<url-pattern>/_02166/fruitservice</url-pattern>
 	</servlet-mapping>
 	
 		<servlet>
@@ -57,7 +57,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>condimentsServlet</servlet-name>
-		<url-pattern>/_8_cdiofinal/condimentsservice</url-pattern>
+		<url-pattern>/_02166/condimentsservice</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -66,7 +66,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>batchServlet</servlet-name>
-		<url-pattern>/_8_cdiofinal/batchservice</url-pattern>
+		<url-pattern>/_02166/batchservice</url-pattern>
 	</servlet-mapping>
   
   <!-- Default page to serve -->
