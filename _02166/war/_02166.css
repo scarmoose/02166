@@ -5,14 +5,62 @@
 h1 {
   font-size: 2em;
   font-weight: bold;
-  color: #777777;
-  margin: 40px 0px 70px;
+  color: #999999;
+  margin: 0px 0px 0px;
   text-align: center;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.gtw-Button {
+	width: 99%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gwt-TextBox {
+	width: 93%;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.gwt-PasswordTextBox {
+	width: 99%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.gwt-Button{
+	width: 100%;
+	color: white;
+	background-color: black;
+	button-color: black;
+}
+
+.deltaWeight {
+	font-size: 25pt;
+}
+
+.coinLabel {
+	font-size: 25pt;
+}
+
+.unitLabel {
+	font-size: 25pt;
+}
+
+.weightLabel {
+	font-size: 25pt;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sendButton {
   display: block;
   font-size: 16pt;
+}
+
+.aPanel {
+	align: center;
 }
 
 /** Most GWT widgets already have a style name defined */
@@ -28,7 +76,37 @@ h1 {
   color: red;
 }
 
+.ipLabel {
+	font-size: 12pt;
+}
+
+.portLabel {
+	font-size: 12pt;
+}
+
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;
+}
+.layoutPanel0{
+	border-style: solid;
+    border-color: #b5b5b5;
+}
+.layoutPanel1{
+	border-style: solid;
+    border-color: #0096fe;
+}
+.layoutPanel2{
+	border-style: solid;
+    border-color: #fb428e;
+}
+.H2 td{
+	font-size: 2em;
+  	color: #000000;
+  	margin: 0px 0px 0px;
+  	border-width: 1px;
+  	border-style: solid;
+  	font-size: 100%;
+  	font-style: normal;
+  	text-shadow: #000 0px 0px 0 !important;
 }

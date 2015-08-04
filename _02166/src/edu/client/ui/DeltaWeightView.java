@@ -2,6 +2,10 @@ package edu.client.ui;
 
 import java.util.List;
 
+import edu.client.service.IASEServiceAsync;
+import edu.client.service.IBatchServiceAsync;
+import edu.shared.BatchDTO;
+
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
 import com.google.gwt.user.cellview.client.TextColumn;
@@ -15,10 +19,6 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SingleSelectionModel;
-
-import edu.client.service.IASEServiceAsync;
-import edu.client.service.IBatchServiceAsync;
-import edu.shared.BatchDTO;
 
 public class DeltaWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
@@ -186,9 +186,9 @@ public class DeltaWeightView extends Composite{
 			public void onFailure(Throwable caught) {
 				if(caught.getMessage().equals("Weight Overload")) {
 					SIDataBox.setText("N/A");
-					getSIData(c, bW, tol);
+					getSIData(c,bW,tol);
 				}else{
-					Window.alert("Error accesing weight: " + caught.getMessage());
+					Window.alert("Error accesing weight" + caught.getMessage());
 				}
 			}
 

@@ -16,7 +16,7 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 
 	
 	/**
-	 * Testing github-account. work pls
+	 * 
 	 */
 	private static final long serialVersionUID = 3486195199860414450L;
 
