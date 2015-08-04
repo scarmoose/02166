@@ -1,0 +1,2 @@
+serviceClass: edu.client.service.IASEService
+path: 4170FD0A0E0B8E4ECC1E1181BDBD2EC2.gwt.rpc

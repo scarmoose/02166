@@ -1,0 +1,2 @@
+serviceClass: edu.client.service.IBatchService
+path: B0C018E01690BACE3A87CF62AFA11D3F.gwt.rpc

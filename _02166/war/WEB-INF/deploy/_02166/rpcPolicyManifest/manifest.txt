@@ -1,0 +1,9 @@
+# Module _02166
+# RPC service class, partial path of RPC policy file
+edu.client.service.ICondimentsService, 7AD08ADAE9F8B7F5A8785CA2277CD86A.gwt.rpc
+edu.client.service.IOperatoerService, 343F7C5D06C389FABA1801724B8609CC.gwt.rpc
+edu.client.service.IMetaService, B359DAE9F643EE3437E63D35EB59BA49.gwt.rpc
+edu.client.service.IASEService, 4170FD0A0E0B8E4ECC1E1181BDBD2EC2.gwt.rpc
+edu.client.service.IFruitService, 5422FD14893FF7255469DF5003C28BF3.gwt.rpc
+edu.client.service.IBatchService, B0C018E01690BACE3A87CF62AFA11D3F.gwt.rpc
+edu.client.service.ICoinService, BCE0F603E0CBED88CC1FA8F4D81C07FA.gwt.rpc

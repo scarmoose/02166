@@ -1,0 +1,2 @@
+serviceClass: edu.client.service.ICoinService
+path: BCE0F603E0CBED88CC1FA8F4D81C07FA.gwt.rpc
