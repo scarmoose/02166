@@ -23,7 +23,7 @@ import edu.client.service.IOperatoerService;
 import edu.client.service.IOperatoerServiceAsync;
 import edu.shared.OperatoerDTO;
 
-public class MainView extends Composite implements Login.Callback, WeightView.Callback,
+public class MainView extends Composite implements WeightView.Callback,
 UnitWeightView.Callback, DeltaWeightView.Callback, ListView.Callback, EditView.Callback {
 
 	private OperatoerDTO activeUser;
@@ -56,22 +56,13 @@ UnitWeightView.Callback, DeltaWeightView.Callback, ListView.Callback, EditView.C
 		});
 		aPanel.setSize(Integer.toString(Window.getClientWidth())+"px", Integer.toString(Window.getClientHeight())+"px");
 
-		login = new Login(this);
-		openLoginView();
-	}
-
-	public Login getLogin() {
-		return login;
+		aPanel.clear();
+		menu = new MenuView(this);
+		aPanel.add(menu);
+		aPanel.setWidgetPosition(menu, 10, 10);
+	
 	}
 	
-	@Override
-	public void loginFailiure() {
-		// TODO Auto-generated method stub
-	}
-
-	public void setLogin(Login login) {
-		this.login = login;
-	}
 
 	//-------------------------------------------------------------------------
 	//method for opening EditView when 
@@ -109,20 +100,7 @@ UnitWeightView.Callback, DeltaWeightView.Callback, ListView.Callback, EditView.C
 		aPanel.setWidgetPosition(content,Window.getClientWidth()/8,Window.getClientHeight()/8);
 	}
 
-	//-------------------------------------------------------------------------
-	//method for opening LoginView when LOGOUT-button is pressed
-	//-------------------------------------------------------------------------
-	
-	public void openLoginView() {
-		aPanel.clear();
-		content.clear();
-		activeUser = null;
-		login.clear();
-		content.add(login);
-		aPanel.add(content);
-		aPanel.setWidgetPosition(content,Window.getClientWidth()/2-115,Window.getClientHeight()/4);
 
-	}
 
 	//-------------------------------------------------------------------------
 	//method for opening ListView when LIST-button is pressed
@@ -133,20 +111,6 @@ UnitWeightView.Callback, DeltaWeightView.Callback, ListView.Callback, EditView.C
 		content.add(new ListView(this));
 		aPanel.add(content);
 		aPanel.setWidgetPosition(content,Window.getClientWidth()/8,Window.getClientHeight()/8);
-	}
-
-
-	//-------------------------------------------------------------------------
-	//method for opening MenuView if login is successful
-	//-------------------------------------------------------------------------
-
-	@Override
-	public void loginSucces(OperatoerDTO activeUser) {
-		aPanel.clear();
-		this.activeUser = activeUser;
-		menu = new MenuView(this);
-		aPanel.add(menu);
-		aPanel.setWidgetPosition(menu, 10, 10);
 	}
 
 	
@@ -215,4 +179,44 @@ UnitWeightView.Callback, DeltaWeightView.Callback, ListView.Callback, EditView.C
 	public ICondimentsServiceAsync getCondimentsService(){
 		return CondimentsService;
 	}
+	
+	//-------------------------------------------------------------------------
+	//method for opening MenuView if login is successful
+	//-------------------------------------------------------------------------
+
+//	@Override
+//	public void loginSucces(OperatoerDTO activeUser) {
+//		aPanel.clear();
+//		this.activeUser = activeUser;
+//		menu = new MenuView(this);
+//		aPanel.add(menu);
+//		aPanel.setWidgetPosition(menu, 10, 10);
+//	}
+	
+	//-------------------------------------------------------------------------
+	//method for opening LoginView when LOGOUT-button is pressed
+	//-------------------------------------------------------------------------
+	
+//	public void openLoginView() {
+//		aPanel.clear();
+//		content.clear();
+//		activeUser = null;
+//		login.clear();
+//		content.add(login);
+//		aPanel.add(content);
+//		aPanel.setWidgetPosition(content,Window.getClientWidth()/2-115,Window.getClientHeight()/4);
+//
+//	}
+	
+//	public Login getLogin() {
+//		return login;
+//	}
+//	
+//	
+//
+//	public void setLogin(Login login) {
+//		this.login = login;
+//	}
+
+	
 }

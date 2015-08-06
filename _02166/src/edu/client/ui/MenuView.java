@@ -31,16 +31,7 @@ public class MenuView extends Composite {
 			}
 		});
 
-		//-----------------------------------------------------
-		//logout-button, reopens LoginView when pressed
-		//-----------------------------------------------------
 
-		Button logoutBtn = new Button("LOGOUT", new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				main.openLoginView();
-			}
-		});
 
 		//-----------------------------------------------------
 		//weight-button, opens WeightView when pressed
@@ -98,15 +89,30 @@ public class MenuView extends Composite {
 		unitWBtn.setPixelSize( 100, 30);
 		deltaWBtn.setPixelSize( 100, 30);
 		listBtn.setPixelSize(100, 30);
-		logoutBtn.setPixelSize(100, 30);
+
 		
 		vPanel.add(weightBtn);
 		vPanel.add(unitWBtn);
 		vPanel.add(deltaWBtn);
 		vPanel.add(listBtn);
-		vPanel.add(logoutBtn);
+
 		
 	}
+	
+//	vPanel.add(logoutBtn);
+//	logoutBtn.setPixelSize(100, 30);
+	
+//	//-----------------------------------------------------
+//	//logout-button, reopens LoginView when pressed
+//	//-----------------------------------------------------
+//
+//	Button logoutBtn = new Button("LOGOUT", new ClickHandler() {
+//		@Override
+//		public void onClick(ClickEvent event) {
+//			main.openLoginView();
+//		}
+//	});
+	
 }
 
 
