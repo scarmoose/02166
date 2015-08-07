@@ -36,7 +36,7 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 	//169.254.2.2
 	//------------------------------------
 
-	private static String host = "169.254.2.3";
+	private static String host = "62.79.16.17";
 	private static int port = 8000;
 	
 	/**
