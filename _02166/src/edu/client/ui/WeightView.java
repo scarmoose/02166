@@ -18,7 +18,9 @@ public class WeightView extends Composite {
 	private VerticalPanel vPanel = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
 	private HorizontalPanel hPanel2 = new HorizontalPanel();
-	private Label weightLabel = new Label("Netto"); 
+	private Label weightLabel = new Label("Netto");
+	private Button getWeightButton;
+	private Button taraWeightButton;
 
 	public interface Callback{
 		public IASEServiceAsync getASEService();
@@ -41,7 +43,8 @@ public class WeightView extends Composite {
 		//Weight-button, get
 		//-------------------------------------------
 
-		Button getWeightButton = new Button("Get weight", new ClickHandler(){
+		getWeightButton = new Button("Get weight");
+		getWeightButton.addClickHandler(new ClickHandler(){
 			@Override
 			public void onClick(ClickEvent event){
 				try {
@@ -72,7 +75,8 @@ public class WeightView extends Composite {
 		//Weight-button, tara
 		//-------------------------------------------
 
-		Button taraWeightButton = new Button("Tara", new ClickHandler() {
+		taraWeightButton = new Button("Tara");
+		taraWeightButton.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event){
 				try {
