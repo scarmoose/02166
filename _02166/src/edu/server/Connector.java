@@ -30,7 +30,7 @@ public class Connector
 					ClassNotFoundException, SQLException
 	{
 		// call the driver class' no argument constructor
-		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		Class.forName("com.mysql.jdbc.GoogleDriver").newInstance();
 		
 		// get Connection-object via DriverManager
 		return (Connection) DriverManager.getConnection(url, username, password);
