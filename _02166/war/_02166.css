@@ -13,7 +13,7 @@ h1 {
 }
 
 .gtw-Button {
-	width: 99%;
+	width: 200%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -30,11 +30,13 @@ h1 {
 	margin-right: auto;
 }
 .gwt-Button{
-	width: 100%;
+	width: 99%;
+	height: 111%;
 	color: white;
 	background-color: black;
 	button-color: black;
 }
+
 
 .deltaWeight {
 	font-size: 25pt;
