@@ -1,35 +1,16 @@
-<<<<<<< HEAD
-17749B8E1C01163CB17F16B4316FD955.cache.js
-user.agent ie8
-
-488C33839C5FD50EA161513328E856D1.cache.js
-=======
-2D447E662C670DE8429A21643F5952BB.cache.js
->>>>>>> branch 'master' of https://github.com/scarmoose/02166.git
-user.agent ie9
-
-<<<<<<< HEAD
-6676C5F7B8A42BC2050ACF6AF7D476B0.cache.js
-=======
-41E79D323F8DAD0913F408C5532C7A97.cache.js
->>>>>>> branch 'master' of https://github.com/scarmoose/02166.git
+26CB9542EDE20EC2FD9857F506025BAA.cache.js
 user.agent safari
 
-<<<<<<< HEAD
-932B4126E4E799A6043D5559445F4BD2.cache.js
-=======
-430572BFD55FD64DF38294B4C08E0F56.cache.js
+4366E479E7C7F9EB37C282E6496598A2.cache.js
 user.agent ie8
 
-66F42AEE6A464103E12B2E2F43B84990.cache.js
->>>>>>> branch 'master' of https://github.com/scarmoose/02166.git
-user.agent ie10
+49E68F13EB00AC119CB40A1EBCE0A6F0.cache.js
+user.agent ie9
 
-<<<<<<< HEAD
-CD53AFC64ED44D9A50083AF2386AD7AE.cache.js
-=======
-B3134E0E313FEF475F90F2887E330060.cache.js
->>>>>>> branch 'master' of https://github.com/scarmoose/02166.git
+8D15CCE193E330BFAF803B8531B93BF7.cache.js
 user.agent gecko1_8
+
+F6F56AA5DE69970C65D238AD69C423F4.cache.js
+user.agent ie10
 
 Devmode:devmode.js

@@ -68,6 +68,11 @@ public class BatchDTO implements Serializable {
 		this.tolerance = tolerance;
 	}
 	
+	public String toString() {
+		return batch_id+", "+raavare_id+", "+raavare_navn+", "
+				+batchweight+", "+tolerance+". ";
+	}
+	
 	
 
 }
