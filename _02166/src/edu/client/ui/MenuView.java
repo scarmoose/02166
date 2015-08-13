@@ -13,7 +13,7 @@ public class MenuView extends Composite {
 
 	public MenuView(final MainView main){
 		initWidget(this.vPanel);
-		this.vPanel.setBorderWidth(1);
+		this.vPanel.setBorderWidth(2);
 
 		
 		//-----------------------------------------------------
@@ -82,19 +82,24 @@ public class MenuView extends Composite {
 		});
 		
 		//-----------------------------------------------------
-		//adding buttons to vertical panel, setting pixel size
+		//adding buttons to vertical panel and styling them
 		//-----------------------------------------------------
-
-		weightBtn.setPixelSize( 100, 30);
-		unitWBtn.setPixelSize( 100, 30);
-		deltaWBtn.setPixelSize( 100, 30);
-		listBtn.setPixelSize(100, 30);
 
 		
 		vPanel.add(weightBtn);
 		vPanel.add(unitWBtn);
 		vPanel.add(deltaWBtn);
 		vPanel.add(listBtn);
+		
+		vPanel.setCellHeight(weightBtn, "60px");
+		vPanel.setCellHeight(unitWBtn, "60px");
+		vPanel.setCellHeight(deltaWBtn, "60px");
+		vPanel.setCellHeight(listBtn, "60px");
+		
+		vPanel.setCellWidth(weightBtn, "120px");
+		vPanel.setCellWidth(unitWBtn, "120px");
+		vPanel.setCellWidth(deltaWBtn, "120px");
+		vPanel.setCellWidth(listBtn, "120px");
 
 		
 	}

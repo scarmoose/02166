@@ -54,8 +54,8 @@ UnitWeightView.Callback, DeltaWeightView.Callback, ListView.Callback, EditView.C
 				Window.alert("Forbindelse til vægten er oprettet");			
 			}			
 		});
+	
 		aPanel.setSize(Integer.toString(Window.getClientWidth())+"px", Integer.toString(Window.getClientHeight())+"px");
-
 		aPanel.clear();
 		menu = new MenuView(this);
 		aPanel.add(menu);
