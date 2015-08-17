@@ -28,20 +28,23 @@ public class WeightView extends Composite {
 
 	public WeightView(final Callback c) {
 
-		//-------------------------------------------
-		//initialiserer panel, tilføjer paneler og labels
-		//-------------------------------------------
+		/**
+		 * Initializing and adding panels, adding labels 
+		 */
 
 		initWidget(this.vPanel);
 		weightLabel.addStyleName("weightLabel");
 		vPanel.add(weightLabel);
 		vPanel.add(hPanel2);
 		vPanel.add(hPanel1);
+		hPanel1.addStyleName("WHP1");
+		hPanel2.addStyleName("WHP2");
+		
 		
 
-		//-------------------------------------------
-		//Weight-button, get
-		//-------------------------------------------
+		/**
+		 * Creation of "Get weight"- and "Tara"-buttons
+		 */
 
 		getWeightButton = new Button("Get weight");
 		getWeightButton.addClickHandler(new ClickHandler(){
@@ -67,14 +70,10 @@ public class WeightView extends Composite {
 		});
 
 		hPanel1.add(getWeightButton);
-		getWeightButton.setPixelSize( 105, 30);
+		getWeightButton.setPixelSize( 105, 40);
 		hPanel1.setBorderWidth(3);
 		
-
-		//-------------------------------------------		
-		//Weight-button, tara
-		//-------------------------------------------
-
+		
 		taraWeightButton = new Button("Tara");
 		taraWeightButton.addClickHandler(new ClickHandler() {
 			@Override
@@ -110,7 +109,7 @@ public class WeightView extends Composite {
 		});
 
 		hPanel1.add(taraWeightButton);
-		taraWeightButton.setPixelSize(105, 30);
+		taraWeightButton.setPixelSize(105, 40);
 		hPanel1.setBorderWidth(3);
 
 	}

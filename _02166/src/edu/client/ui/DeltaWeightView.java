@@ -56,6 +56,7 @@ public class DeltaWeightView extends Composite{
 		viewInfo.setHeight("92px");
 
 		vPanel.add(dbar);
+		dbar.addStyleName("dbar");
 		vPanel.add(vPanel2);
 		dbar.setHeight("71px");
 		vPanel2.add(hPanel1);
@@ -63,6 +64,7 @@ public class DeltaWeightView extends Composite{
 		hPanel1.setHeight("52px");
 		vPanel2.add(ft2);
 		ft2.setWidth("550");
+		vPanel2.setStyleName("DVP2");
 
 		hPanel1.add(ft);
 		ft.setWidth("555px");
