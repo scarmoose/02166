@@ -152,9 +152,12 @@ public class DeltaWeightView extends Composite{
 
 				final SingleSelectionModel<BatchDTO> selectionModel = new SingleSelectionModel<BatchDTO>();
 
-
 				batchTable.setSelectionModel(selectionModel);
 				selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
+					/*
+					 * Det er vist et problem at getSIData kaldes IGEN onSelectionChange uden at stoppe det gamle rekursive kald.
+					 * Se getSIData, der rekursivt kalder sig selv 
+					 */
 					public void onSelectionChange(SelectionChangeEvent event) {
 						BatchDTO selected = selectionModel.getSelectedObject();
 						/*
