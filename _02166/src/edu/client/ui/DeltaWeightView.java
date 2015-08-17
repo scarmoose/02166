@@ -28,7 +28,6 @@ public class DeltaWeightView extends Composite{
 
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
-	private Label viewInfo = new Label("Delta-weight");
 	private Label prdName = new Label("Product Name");
 	private Label batchID = new Label("BatchID");
 	private Label wData = new Label("Batch weight");
@@ -57,10 +56,6 @@ public class DeltaWeightView extends Composite{
 		testList.add(new BatchDTO(3, 1, "loeg", 1, 0.05));
 
 		vPanel.setHeight("328px");
-		viewInfo.addStyleName("deltaWeight");
-		vPanel.add(viewInfo);
-		viewInfo.setHeight("92px");
-
 		vPanel.add(dbar);
 		dbar.addStyleName("dbar");
 		vPanel.add(vPanel2);

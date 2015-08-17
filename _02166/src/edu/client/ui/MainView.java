@@ -22,8 +22,8 @@ public class MainView extends Composite implements WeightView.Callback,
 	private final IASEServiceAsync ASEservice = GWT.create(IASEService.class);
 	private final IMetaServiceAsync Metaservice = GWT.create(IMetaService.class);
 	private final IBatchServiceAsync BatchService = GWT.create(IBatchService.class);
-
 	private AbsolutePanel aPanel = new AbsolutePanel();
+	private VerticalPanel vPanel = new VerticalPanel();
 
 	public MainView() throws Exception {
 		initWidget(aPanel);
@@ -43,9 +43,10 @@ public class MainView extends Composite implements WeightView.Callback,
 		aPanel.setSize(Integer.toString(Window.getClientWidth()) + "px",
 				Integer.toString(Window.getClientHeight()) + "px");
 		aPanel.clear();
+		aPanel.add(vPanel);
 		menu = new MenuView(this);
-		aPanel.add(menu);
-		aPanel.setWidgetPosition(menu, 430, 233);
+		vPanel.add(menu);
+		aPanel.setWidgetPosition(vPanel, Window.getClientWidth()/2-185, 5);
 
 	}
 
@@ -59,8 +60,7 @@ public class MainView extends Composite implements WeightView.Callback,
 		UnitWeightView coin = new UnitWeightView(this);
 		content.add(coin);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth() / 2,
-				Window.getClientHeight() / 2);
+		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-130, Window.getClientHeight()/6);
 	}
 
 	
@@ -69,8 +69,7 @@ public class MainView extends Composite implements WeightView.Callback,
 		WeightView weight = new WeightView(this);
 		content.add(weight);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth() / 2,
-				Window.getClientHeight() / 2);
+		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-110, Window.getClientHeight()/6);
 
 	}
 
@@ -80,8 +79,7 @@ public class MainView extends Composite implements WeightView.Callback,
 		DeltaWeightView dWView = new DeltaWeightView(this);
 		content.add(dWView);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth() / 2,
-				Window.getClientHeight() / 2);
+		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-265, Window.getClientHeight()/16);
 
 	}
 
