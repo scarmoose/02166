@@ -1,10 +1,7 @@
 package edu.client.ui;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import edu.client.service.IASEServiceAsync;
-import edu.client.service.IBatchServiceAsync;
-import edu.shared.BatchDTO;
 
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
@@ -19,6 +16,10 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SingleSelectionModel;
+
+import edu.client.service.IASEServiceAsync;
+import edu.client.service.IBatchServiceAsync;
+import edu.shared.BatchDTO;
 
 public class DeltaWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
@@ -40,7 +41,8 @@ public class DeltaWeightView extends Composite{
 
 	private List<BatchDTO> batchList;
 	private DeltaBar dbar = new DeltaBar();
-
+	
+	ArrayList<BatchDTO> testList = new ArrayList<BatchDTO>();
 
 	public interface Callback{
 		public IASEServiceAsync getASEService();
@@ -49,6 +51,10 @@ public class DeltaWeightView extends Composite{
 
 	public DeltaWeightView(final Callback c) throws Exception {
 		initWidget(vPanel);
+		
+		testList.add(new BatchDTO(1, 1, "tomat", 1, 0.05));
+		testList.add(new BatchDTO(2, 1, "tomat", 5, 0.05));
+		testList.add(new BatchDTO(3, 1, "loeg", 1, 0.05));
 
 		vPanel.setHeight("328px");
 		viewInfo.addStyleName("deltaWeight");
@@ -203,6 +209,8 @@ public class DeltaWeightView extends Composite{
 			}
 		});		
 	}
+
+
 
 
 }
