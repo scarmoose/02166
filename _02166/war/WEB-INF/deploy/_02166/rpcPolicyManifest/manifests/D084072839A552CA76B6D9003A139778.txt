@@ -1,2 +1,0 @@
-serviceClass: edu.client.service.IFruitService
-path: 5422FD14893FF7255469DF5003C28BF3.gwt.rpc

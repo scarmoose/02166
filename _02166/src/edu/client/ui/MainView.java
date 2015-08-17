@@ -31,12 +31,12 @@ public class MainView extends Composite implements WeightView.Callback,
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert("Der kunne ikke skabes forbindelse til vægten.");
-				System.out.println("No connection established");
+				System.out.println("No connection established :(");
 			}
 
 			@Override
 			public void onSuccess(Void result) {
-				Window.alert("Forbindelse til vægten er oprettet");
+				System.out.println("Connection established!");
 			}
 		});
 
@@ -45,7 +45,7 @@ public class MainView extends Composite implements WeightView.Callback,
 		aPanel.clear();
 		menu = new MenuView(this);
 		aPanel.add(menu);
-		aPanel.setWidgetPosition(menu, 10, 10);
+		aPanel.setWidgetPosition(menu, 430, 233);
 
 	}
 
@@ -59,8 +59,8 @@ public class MainView extends Composite implements WeightView.Callback,
 		UnitWeightView coin = new UnitWeightView(this);
 		content.add(coin);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth() / 8,
-				Window.getClientHeight() / 8);
+		aPanel.setWidgetPosition(content, Window.getClientWidth() / 2,
+				Window.getClientHeight() / 2);
 	}
 
 	
@@ -69,8 +69,8 @@ public class MainView extends Composite implements WeightView.Callback,
 		WeightView weight = new WeightView(this);
 		content.add(weight);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth() / 8,
-				Window.getClientHeight() / 8);
+		aPanel.setWidgetPosition(content, Window.getClientWidth() / 2,
+				Window.getClientHeight() / 2);
 
 	}
 
@@ -80,8 +80,8 @@ public class MainView extends Composite implements WeightView.Callback,
 		DeltaWeightView dWView = new DeltaWeightView(this);
 		content.add(dWView);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth() / 8,
-				Window.getClientHeight() / 8);
+		aPanel.setWidgetPosition(content, Window.getClientWidth() / 2,
+				Window.getClientHeight() / 2);
 
 	}
 

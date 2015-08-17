@@ -18,37 +18,44 @@ h1 {
 
 .WHP1{
 	position: relative;
-	top: -96px;
+	top: -196px;
+	left: -100px;
 }
 
 .WHP2{
 	position: relative;
-	top: -96px;
+	top: -196px;
+	left: -100px;
 }
 
 .UHP1{
 	position: relative;
-	top: -96px;
+	top: -196px;
+	left: -100px;
 }
 
 .UHP2{
 	position: relative;
-	top: -96px;
+	top: -196px;
+	left: -100px;
 }
 
 .UHP3{
 	position: relative;
-	top: -96px;
+	top: -196px;
+	left: -100px;
 }
 
 .UHP4{
 	position: relative;
-	top: -96px;
+	top: -196px;
+	left: -100px;
 }
 
 .DVP2{
 	position: relative;
-	top: -106px;
+	top: -266px;
+	left: -100px;
 }
 
 
@@ -81,24 +88,26 @@ h1 {
 
 .deltaWeight {
 	position: relative;
-	top: -96px;
+	top: -196px;
 	font-size: 25pt;
 	margin-left: auto;
 	margin-right: auto;	
+	left: -100px;
 }
 
 .weightLabel {
 	position: relative;
-	top: -96px;
+	top: -196px;
 	font-size: 25pt;
 	margin-left: auto;
 	margin-right: auto;
+	left: -100px;
 }
 
 .dbar{
 	position: relative;
-	left: -10px;
-	top: -96px;
+	left: -110px;
+	top: -246px;
 }
 
 .sendButton {
