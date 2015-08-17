@@ -89,7 +89,7 @@ public class DeltaWeightView extends Composite{
 
 			@Override
 			public void onFailure(Throwable caught) {
-				Window.alert("Failed to access databse: "+caught.getMessage());
+				Window.alert("Failed to access database: "+caught.getMessage());
 			}
 			@Override
 			public void onSuccess(List<BatchDTO> result) {

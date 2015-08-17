@@ -32,7 +32,6 @@ public class BatchDAO extends RemoteServiceServlet implements edu.server.interfa
 //		}
 	}
 
-	@Override
 //	public BatchDTO getBatch(int batchid) throws Exception {
 //		ResultSet rs = Connector.doQuery("SELECT * FROM batch WHERE batch_id = " + batchid);
 //		try {
@@ -43,6 +42,7 @@ public class BatchDAO extends RemoteServiceServlet implements edu.server.interfa
 //		catch (SQLException e) {throw new DALException(e.getMessage()); }
 //	}
 	
+	@Override
 	public BatchDTO getBatch(int batchid) throws Exception {
 		CSVParser csv = new CSVParser();
 		BufferedReader in = new BufferedReader(new FileReader("war/batches.csv"));
