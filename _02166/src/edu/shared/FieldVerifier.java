@@ -40,4 +40,10 @@ public class FieldVerifier {
 		return name.length() > 3;
 	}
 	
+	public static boolean isValidCalibInput(String value) {
+		if(value == null) return false;
+		int v = Integer.parseInt(value);
+		return v > 0;		
+	}
+	
 }
