@@ -2,7 +2,6 @@ package edu.client.ui;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -36,9 +35,9 @@ public class UnitWeightView extends Composite {
 
 	public UnitWeightView(final Callback c) {
 
-		//-------------------------------------------
-		//initialiserer panel, tilføjer paneler og labels
-		//-------------------------------------------
+		/**
+		 * Initializing and adding panels, adding labels 
+		 */
 
 		initWidget(this.vPanel);
 		weightLabel.addStyleName("weightLabel");
@@ -53,7 +52,10 @@ public class UnitWeightView extends Composite {
 		initBox.setPixelSize(105, 30);
 		hPanel1.setBorderWidth(3);
 
-
+		/**
+		 * Creation of "Get units" and "Kalibrer"-button
+		 */
+		
 		final Button UnitButton = new Button("Get units", new ClickHandler(){
 			@Override
 			public void onClick(ClickEvent event){
@@ -90,12 +92,6 @@ public class UnitWeightView extends Composite {
 				}
 			}
 		});
-
-
-		//-------------------------------------------		
-		//Weight-button, Kalibrer
-		//-------------------------------------------
-
 
 		Button kalibButton = new Button("Kalibrer", new ClickHandler() {
 			@Override
@@ -143,6 +139,11 @@ public class UnitWeightView extends Composite {
 			}
 
 		});
+		
+		hPanel1.setStyleName("UHP1");
+		hPanel2.setStyleName("UHP2");
+		hPanel3.setStyleName("UHP3");
+		hPanel4.setStyleName("UHP4");
 
 		hPanel1.add(kalibButton);
 		kalibButton.setPixelSize(105, 40);
