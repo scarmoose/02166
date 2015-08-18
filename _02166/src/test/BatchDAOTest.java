@@ -17,13 +17,24 @@ public class BatchDAOTest {
 	}
 
 	@Test
-	public void testGetBatch() throws Exception {
-		BatchDTO dto = dao.getBatch(1); 
-		assertEquals(dto.getBatch_id(), 1);
+	public void testGetBatch2() throws Exception {
+		BatchDTO dto = dao.getBatch(2); 
+		assertEquals(dto.getBatch_id(), 2);
 		assertEquals(dto.getRaavare_id(), 1);
 		assertTrue(dto.getRaavare_navn().equals("tomat"));
-		assertEquals((int) dto.getBatchweight(), 1);
+		assertEquals((int) dto.getBatchweight(), 5);
 		assertEquals(dto.getTolerance(), 0.05, 0.01);
+		
+	}
+	
+	@Test
+	public void testGetBatch4() throws Exception {
+		BatchDTO dto = dao.getBatch(4);
+		assertEquals(dto.getBatch_id(), 4);
+		assertEquals(dto.getRaavare_id(), 3);
+		assertTrue(dto.getRaavare_navn().equals("kokain"));
+		assertEquals((int) dto.getBatchweight(), 1);
+		assertEquals(dto.getTolerance(), 0.005, 0.001);
 		
 	}
 }
