@@ -45,9 +45,9 @@ public class BatchDAO extends RemoteServiceServlet implements edu.server.interfa
 	@Override
 	public BatchDTO getBatch(int batchid) throws Exception {
 		CSVParser csv = new CSVParser();
-		BufferedReader in = new BufferedReader(new FileReader("war/batches.csv"));
+		BufferedReader in = new BufferedReader(new FileReader("batches.csv"));
 		String[] values = new String[5];
-		values[0] = "0";
+		values[0] = "-1";
 		while(Integer.parseInt(values[0]) != batchid){
 			String line;
 			if((line = in.readLine()) == null) break;
@@ -62,7 +62,7 @@ public class BatchDAO extends RemoteServiceServlet implements edu.server.interfa
 	public List<BatchDTO> getBatchList() throws Exception {
 		List<BatchDTO> list = new ArrayList<BatchDTO>(); 
 		CSVParser csv = new CSVParser();
-		BufferedReader in = new BufferedReader(new FileReader("war/batches.csv"));
+		BufferedReader in = new BufferedReader(new FileReader("batches.csv"));
 		String line;
 		while((line = in.readLine()) != null) {
 			String[] values = csv.parseLine(line); 

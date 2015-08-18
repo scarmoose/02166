@@ -186,6 +186,8 @@ public class BatchWeightView extends Composite{
 		});
 	}
 
+	
+	
 	private void getSIData(final Callback c, final double bW, final double tol) {
 		c.getASEService().getSIWeight(new AsyncCallback<Double>(){
 			@Override
