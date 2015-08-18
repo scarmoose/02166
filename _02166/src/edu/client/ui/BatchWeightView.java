@@ -25,7 +25,7 @@ public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
-
+	
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
 	private Label prdName = new Label("Product Name");
@@ -40,9 +40,10 @@ public class BatchWeightView extends Composite{
 
 	private List<BatchDTO> batchList;
 	private DeltaBar dbar = new DeltaBar();
+	Boolean running;
 	
 	ArrayList<BatchDTO> testList = new ArrayList<BatchDTO>();
-
+	
 	public interface Callback{
 		public IASEServiceAsync getASEService();
 		public IBatchServiceAsync getBatchService();
@@ -162,18 +163,34 @@ public class BatchWeightView extends Composite{
 					 * Se getSIData, der rekursivt kalder sig selv 
 					 */
 					public void onSelectionChange(SelectionChangeEvent event) {
-						BatchDTO selected = selectionModel.getSelectedObject();
-						/*
-						 * Here we want to display the data in the table operatoer
-						 * then we want to make it able to then show both coins and operatoer
-						 * 
-						 */
+						running=false;
+						c.getASEService().getSIWeight(new AsyncCallback<Double>(){
+							BatchDTO selected = selectionModel.getSelectedObject();
+							@Override
+							public void onFailure(Throwable caught) {
+								if(caught.getMessage().equals("Weight Overload")) {
+									SIDataBox.setText("N/A");
+									getSIData(c,selected.getBatchweight(), selected.getTolerance());
+								}else{
+									Window.alert("Error accesing weight" + caught.getMessage());
+								}
+							}
 
-						productName.setText(selected.getRaavare_navn());
-						batchIDBox.setText(""+selected.getBatch_id());
-						batchData.setText("" + selected.getBatchweight());
-
-						getSIData(c, selected.getBatchweight(), selected.getTolerance());
+							@Override
+							public void onSuccess(Double result) {
+								/*
+								 * Here we want to display the data in the table operatoer
+								 * then we want to make it able to then show both coins and operatoer
+								 * 
+								 */
+								productName.setText(selected.getRaavare_navn());
+								batchIDBox.setText(""+selected.getBatch_id());
+								batchData.setText("" + selected.getBatchweight());
+								//dbar.deltaBarData(result,selected.getBatchweight(), selected.getTolerance());
+								running=true;
+								getSIData(c, selected.getBatchweight(), selected.getTolerance());
+								}
+						});							
 					}
 				});
 
@@ -189,24 +206,26 @@ public class BatchWeightView extends Composite{
 	
 	
 	private void getSIData(final Callback c, final double bW, final double tol) {
-		c.getASEService().getSIWeight(new AsyncCallback<Double>(){
-			@Override
-			public void onFailure(Throwable caught) {
-				if(caught.getMessage().equals("Weight Overload")) {
-					SIDataBox.setText("N/A");
-					getSIData(c,bW,tol);
-				}else{
-					Window.alert("Error accesing weight" + caught.getMessage());
+			c.getASEService().getSIWeight(new AsyncCallback<Double>() {
+				@Override
+				public void onFailure(Throwable caught) {
+					if (caught.getMessage().equals("Weight Overload")) {
+						SIDataBox.setText("N/A");
+						getSIData(c, bW, tol);
+					} else {
+						Window.alert("Error accesing weight" + caught.getMessage());
+					}
 				}
-			}
 
-			@Override
-			public void onSuccess(Double result) {
-				SIDataBox.setText(Double.toString(result));
-				dbar.deltaBarData(result, bW, tol);
-				getSIData(c,bW,tol);
-			}
-		});		
+				@Override
+				public void onSuccess(Double result) {
+					if (running){	
+						SIDataBox.setText(Double.toString(result));
+						dbar.deltaBarData(result,bW,tol);
+						getSIData(c, bW, tol);
+					}
+				}
+			});		
 	}
 
 
