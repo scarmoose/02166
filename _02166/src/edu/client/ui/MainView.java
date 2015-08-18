@@ -15,7 +15,7 @@ import edu.client.service.IMetaService;
 import edu.client.service.IMetaServiceAsync;
 
 public class MainView extends Composite implements WeightView.Callback,
-		UnitWeightView.Callback, DeltaWeightView.Callback {
+		UnitWeightView.Callback, BatchWeightView.Callback {
 
 	private VerticalPanel content = new VerticalPanel();
 	private MenuView menu;
@@ -74,10 +74,10 @@ public class MainView extends Composite implements WeightView.Callback,
 	}
 
 
-	public void openDeltaWeightView() throws Exception {
+	public void openBatchWeightView() throws Exception {
 		content.clear();
-		DeltaWeightView dWView = new DeltaWeightView(this);
-		content.add(dWView);
+		BatchWeightView bWView = new BatchWeightView(this);
+		content.add(bWView);
 		aPanel.add(content);
 		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-265, Window.getClientHeight()/16);
 

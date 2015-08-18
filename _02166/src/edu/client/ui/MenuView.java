@@ -45,11 +45,11 @@ public class MenuView extends Composite {
 			}
 		});
 
-		Button deltaWBtn = new Button("DELTA", new ClickHandler(){
+		Button deltaWBtn = new Button("BATCH", new ClickHandler(){
 			@Override
 			public void onClick(ClickEvent even){
 				try{
-					main.openDeltaWeightView();
+					main.openBatchWeightView();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

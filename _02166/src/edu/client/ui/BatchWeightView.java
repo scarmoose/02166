@@ -21,7 +21,7 @@ import edu.client.service.IASEServiceAsync;
 import edu.client.service.IBatchServiceAsync;
 import edu.shared.BatchDTO;
 
-public class DeltaWeightView extends Composite{
+public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
@@ -48,7 +48,7 @@ public class DeltaWeightView extends Composite{
 		public IBatchServiceAsync getBatchService();
 	}
 
-	public DeltaWeightView(final Callback c) throws Exception {
+	public BatchWeightView(final Callback c) throws Exception {
 		initWidget(vPanel);
 		
 		testList.add(new BatchDTO(1, 1, "tomat", 1, 0.05));
