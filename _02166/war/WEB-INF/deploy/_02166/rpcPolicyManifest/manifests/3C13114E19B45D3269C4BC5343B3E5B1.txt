@@ -1,2 +1,0 @@
-serviceClass: edu.client.service.ICondimentsService
-path: 7AD08ADAE9F8B7F5A8785CA2277CD86A.gwt.rpc

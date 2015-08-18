@@ -12,48 +12,6 @@ h1 {
   border-style: solid;
 }
 
-
-
-
-
-.WHP1{
-	position: relative;
-	top: -96px;
-}
-
-.WHP2{
-	position: relative;
-	top: -96px;
-}
-
-.UHP1{
-	position: relative;
-	top: -96px;
-}
-
-.UHP2{
-	position: relative;
-	top: -96px;
-}
-
-.UHP3{
-	position: relative;
-	top: -96px;
-}
-
-.UHP4{
-	position: relative;
-	top: -96px;
-}
-
-.DVP2{
-	position: relative;
-	top: -106px;
-}
-
-
-
-
 .gtw-Button {
 	width: 200%;
 	margin-left: auto;
@@ -79,26 +37,19 @@ h1 {
 	button-color: black;
 }
 
-.deltaWeight {
-	position: relative;
-	top: -96px;
-	font-size: 25pt;
-	margin-left: auto;
-	margin-right: auto;	
-}
-
 .weightLabel {
 	position: relative;
-	top: -96px;
+	/**top: -196px;*/
 	font-size: 25pt;
 	margin-left: auto;
 	margin-right: auto;
+	/**left: -100px;*/
 }
 
 .dbar{
 	position: relative;
-	left: -10px;
-	top: -96px;
+	left: -11px;
+	top: 80px;
 }
 
 .sendButton {

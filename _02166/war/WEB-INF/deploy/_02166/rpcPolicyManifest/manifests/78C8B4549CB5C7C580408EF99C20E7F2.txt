@@ -1,2 +1,0 @@
-serviceClass: edu.client.service.IOperatoerService
-path: 343F7C5D06C389FABA1801724B8609CC.gwt.rpc

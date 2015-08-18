@@ -21,14 +21,13 @@ import edu.client.service.IASEServiceAsync;
 import edu.client.service.IBatchServiceAsync;
 import edu.shared.BatchDTO;
 
-public class DeltaWeightView extends Composite{
+public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
 
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
-	private Label viewInfo = new Label("Delta-weight");
 	private Label prdName = new Label("Product Name");
 	private Label batchID = new Label("BatchID");
 	private Label wData = new Label("Batch weight");
@@ -49,7 +48,7 @@ public class DeltaWeightView extends Composite{
 		public IBatchServiceAsync getBatchService();
 	}
 
-	public DeltaWeightView(final Callback c) throws Exception {
+	public BatchWeightView(final Callback c) throws Exception {
 		initWidget(vPanel);
 		
 		testList.add(new BatchDTO(1, 1, "tomat", 1, 0.05));
@@ -57,10 +56,6 @@ public class DeltaWeightView extends Composite{
 		testList.add(new BatchDTO(3, 1, "loeg", 1, 0.05));
 
 		vPanel.setHeight("328px");
-		viewInfo.addStyleName("deltaWeight");
-		vPanel.add(viewInfo);
-		viewInfo.setHeight("92px");
-
 		vPanel.add(dbar);
 		dbar.addStyleName("dbar");
 		vPanel.add(vPanel2);

@@ -53,7 +53,7 @@ public class UnitWeightView extends Composite {
 		hPanel1.setBorderWidth(3);
 
 		/**
-		 * Creation of "Get units" and "Kalibrer"-button
+		 * Creation of "Get units" and "Calibrate"-button
 		 */
 		
 		final Button UnitButton = new Button("Get units", new ClickHandler(){
@@ -93,7 +93,7 @@ public class UnitWeightView extends Composite {
 			}
 		});
 
-		Button kalibButton = new Button("Kalibrer", new ClickHandler() {
+		Button kalibButton = new Button("Calibrate", new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event){
 				try {
