@@ -46,6 +46,7 @@ public class BatchWeightView extends Composite{
 	public interface Callback{
 		public IASEServiceAsync getASEService();
 		public IBatchServiceAsync getBatchService();
+		public void openBatchWeightView() throws Exception;
 	}
 
 	public BatchWeightView(final Callback c) throws Exception {
@@ -58,8 +59,9 @@ public class BatchWeightView extends Composite{
 		vPanel.setHeight("328px");
 		vPanel.add(dbar);
 		dbar.addStyleName("dbar");
+		//justeres for at skabe mere "luft" under baren
+		dbar.setHeight("120px");
 		vPanel.add(vPanel2);
-		dbar.setHeight("71px");
 		vPanel2.add(hPanel1);
 		vPanel2.setBorderWidth(2);
 		hPanel1.setHeight("52px");
@@ -172,8 +174,11 @@ public class BatchWeightView extends Composite{
 						productName.setText(selected.getRaavare_navn());
 						batchIDBox.setText(""+selected.getBatch_id());
 						batchData.setText("" + selected.getBatchweight());
+						
+						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
 
-						getSIData(c, selected.getBatchweight(), selected.getTolerance());
+						refreshIndicator(c);
+//						getSIData(c);
 					}
 				});
 
@@ -186,15 +191,14 @@ public class BatchWeightView extends Composite{
 		});
 	}
 
-	
-	
-	private void getSIData(final Callback c, final double bW, final double tol) {
-		c.getASEService().getSIWeight(new AsyncCallback<Double>(){
+	private void refreshIndicator(final Callback c) {
+		c.getASEService().getSIWeight(new AsyncCallback<Double>() {
+
 			@Override
 			public void onFailure(Throwable caught) {
 				if(caught.getMessage().equals("Weight Overload")) {
 					SIDataBox.setText("N/A");
-					getSIData(c,bW,tol);
+					refreshIndicator(c);
 				}else{
 					Window.alert("Error accesing weight" + caught.getMessage());
 				}
@@ -203,13 +207,9 @@ public class BatchWeightView extends Composite{
 			@Override
 			public void onSuccess(Double result) {
 				SIDataBox.setText(Double.toString(result));
-				dbar.deltaBarData(result, bW, tol);
-				getSIData(c,bW,tol);
-			}
-		});		
+				dbar.setIndicator(result);
+				refreshIndicator(c);
+			}	
+		});
 	}
-
-
-
-
 }

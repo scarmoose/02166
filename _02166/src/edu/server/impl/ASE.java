@@ -79,7 +79,6 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 			return -1;
 		}else if(response.startsWith("S +")){
 			throw new DALException("Weight Overload");
-
 		}
 		double weight = Double.parseDouble(response.substring(3,response.length()-2).trim());
 		return weight;
@@ -101,8 +100,7 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 	 */
 	
 	public double returnNetto() {
-		netto = (brutto - tara);
-		return netto;
+		return netto = (brutto - tara);
 	}
 
 	public Socket getSock() {

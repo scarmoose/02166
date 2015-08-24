@@ -31,16 +31,6 @@ public class BatchDAO extends RemoteServiceServlet implements edu.server.interfa
 //			e.printStackTrace();
 //		}
 	}
-
-//	public BatchDTO getBatch(int batchid) throws Exception {
-//		ResultSet rs = Connector.doQuery("SELECT * FROM batch WHERE batch_id = " + batchid);
-//		try {
-//			if (!rs.first()) throw new DALException("Batch med id " + batchid + " findes ikke");
-//			return new BatchDTO(rs.getInt("batch_id"), rs.getInt("raavare_id"), rs.getString("raavare"),
-//					rs.getDouble("batchweight"), rs.getDouble("tolerance"));
-//		}
-//		catch (SQLException e) {throw new DALException(e.getMessage()); }
-//	}
 	
 	@Override
 	public BatchDTO getBatch(int batchid) throws Exception {
@@ -72,6 +62,16 @@ public class BatchDAO extends RemoteServiceServlet implements edu.server.interfa
 		in.close();
 		return list;
 	}
+	
+//	public BatchDTO getBatch(int batchid) throws Exception {
+//	ResultSet rs = Connector.doQuery("SELECT * FROM batch WHERE batch_id = " + batchid);
+//	try {
+//		if (!rs.first()) throw new DALException("Batch med id " + batchid + " findes ikke");
+//		return new BatchDTO(rs.getInt("batch_id"), rs.getInt("raavare_id"), rs.getString("raavare"),
+//				rs.getDouble("batchweight"), rs.getDouble("tolerance"));
+//	}
+//	catch (SQLException e) {throw new DALException(e.getMessage()); }
+//  }
 	
 //	public List<BatchDTO> getBatchList() throws Exception {
 //		List<BatchDTO> list = new ArrayList<BatchDTO>();

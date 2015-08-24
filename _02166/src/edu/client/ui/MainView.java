@@ -50,10 +50,9 @@ public class MainView extends Composite implements WeightView.Callback,
 
 	}
 
-	/**
-	 * Methods for the different views
-	 * @throws Exception
-	 */
+	//----------------------------------------
+	// Methods for opening the different views
+	//----------------------------------------
 	
 	public void openStykWeight() throws Exception {
 		content.clear();
