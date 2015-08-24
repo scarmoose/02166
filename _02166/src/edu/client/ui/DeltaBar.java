@@ -113,6 +113,7 @@ public class DeltaBar extends Composite {
 		upperWeightBound = (upper_w - a_w)*pxPrUnit;
 		
 		BigDecimal bd;
+		//grænseværdierne rundes af til 2 decimaler
 		bd = new BigDecimal(a_w).setScale(2, RoundingMode.HALF_UP);
 		a_w = bd.doubleValue();
 		bd = new BigDecimal(b_w).setScale(2, RoundingMode.HALF_UP);
