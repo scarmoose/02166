@@ -25,7 +25,7 @@ public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
-
+	
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
 	private Label prdName = new Label("Product Name");
@@ -40,9 +40,10 @@ public class BatchWeightView extends Composite{
 
 	private List<BatchDTO> batchList;
 	private DeltaBar dbar = new DeltaBar();
+	Boolean running;
 	
 	ArrayList<BatchDTO> testList = new ArrayList<BatchDTO>();
-
+	
 	public interface Callback{
 		public IASEServiceAsync getASEService();
 		public IBatchServiceAsync getBatchService();
@@ -165,12 +166,6 @@ public class BatchWeightView extends Composite{
 					 */
 					public void onSelectionChange(SelectionChangeEvent event) {
 						BatchDTO selected = selectionModel.getSelectedObject();
-						/*
-						 * Here we want to display the data in the table operatoer
-						 * then we want to make it able to then show both coins and operatoer
-						 * 
-						 */
-
 						productName.setText(selected.getRaavare_navn());
 						batchIDBox.setText(""+selected.getBatch_id());
 						batchData.setText("" + selected.getBatchweight());
@@ -178,7 +173,7 @@ public class BatchWeightView extends Composite{
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
 
 						refreshIndicator(c);
-//						getSIData(c);
+
 					}
 				});
 
@@ -201,9 +196,10 @@ public class BatchWeightView extends Composite{
 					refreshIndicator(c);
 				}else{
 					Window.alert("Error accesing weight" + caught.getMessage());
+
 				}
 			}
-
+			
 			@Override
 			public void onSuccess(Double result) {
 				SIDataBox.setText(Double.toString(result));
@@ -211,5 +207,6 @@ public class BatchWeightView extends Composite{
 				refreshIndicator(c);
 			}	
 		});
+	
 	}
 }
