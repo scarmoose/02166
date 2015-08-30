@@ -25,6 +25,7 @@ public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
+	private HorizontalPanel hPanel2 = new HorizontalPanel();
 	
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
@@ -32,6 +33,7 @@ public class BatchWeightView extends Composite{
 	private Label batchID = new Label("BatchID");
 	private Label wData = new Label("Batch weight");
 	private Label SIData = new Label("SI - WeightData");
+	private Label errorLabel1 = new Label();
 
 	private TextBox productName = new TextBox(); 
 	private TextBox batchIDBox = new TextBox();
@@ -64,6 +66,7 @@ public class BatchWeightView extends Composite{
 		dbar.setHeight("120px");
 		vPanel.add(vPanel2);
 		vPanel2.add(hPanel1);
+		vPanel2.add(hPanel2);
 		vPanel2.setBorderWidth(2);
 		hPanel1.setHeight("52px");
 		vPanel2.add(ft2);
@@ -93,10 +96,14 @@ public class BatchWeightView extends Composite{
 
 			@Override
 			public void onFailure(Throwable caught) {
-				Window.alert("Failed to access database: "+caught.getMessage());
+				hPanel2.clear();
+				errorLabel1.setText("Failed to access database");
+				hPanel2.add(errorLabel1);
+				//Window.alert("Failed to access database: "+caught.getMessage());
 			}
 			@Override
 			public void onSuccess(List<BatchDTO> result) {
+				hPanel2.clear();
 				batchList = result;
 				CellTable<BatchDTO> batchTable = new CellTable<BatchDTO>();
 				batchTable.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);

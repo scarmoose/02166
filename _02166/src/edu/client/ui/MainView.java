@@ -5,6 +5,8 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 import edu.client.service.IASEService;
@@ -24,18 +26,25 @@ public class MainView extends Composite implements WeightView.Callback,
 	private final IBatchServiceAsync BatchService = GWT.create(IBatchService.class);
 	private AbsolutePanel aPanel = new AbsolutePanel();
 	private VerticalPanel vPanel = new VerticalPanel();
-
+	private HorizontalPanel hPanel = new HorizontalPanel();
+	private Label errorLabel1 = new Label();
+	
 	public MainView() throws Exception {
 		initWidget(aPanel);
+		vPanel.add(hPanel);
 		ASEservice.connect(new AsyncCallback<Void>() {
 			@Override
 			public void onFailure(Throwable caught) {
-				Window.alert("Der kunne ikke skabes forbindelse til vægten.");
+				hPanel.clear();
+				errorLabel1.setText("Der kunne ikke skabes forbindelse til v�gten.");
+				hPanel.add(errorLabel1);
+				//Window.alert("Der kunne ikke skabes forbindelse til vægten.");
 				System.out.println("No connection established :(");
 			}
 
 			@Override
 			public void onSuccess(Void result) {
+				hPanel.clear();
 				System.out.println("Connection established!");
 			}
 		});
