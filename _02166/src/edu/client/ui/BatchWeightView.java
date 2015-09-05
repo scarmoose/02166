@@ -1,15 +1,15 @@
 package edu.client.ui;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
 import com.google.gwt.user.cellview.client.TextColumn;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -42,11 +42,8 @@ public class BatchWeightView extends Composite{
 
 	private List<BatchDTO> batchList;
 	private DeltaBar dbar = new DeltaBar();
-	Boolean running;
 	
-	ArrayList<BatchDTO> testList = new ArrayList<BatchDTO>();
-	
-	public interface Callback{
+		public interface Callback{
 		public IASEServiceAsync getASEService();
 		public IBatchServiceAsync getBatchService();
 		public void openBatchWeightView() throws Exception;
@@ -54,17 +51,15 @@ public class BatchWeightView extends Composite{
 
 	public BatchWeightView(final Callback c) throws Exception {
 		initWidget(vPanel);
-		
-		testList.add(new BatchDTO(1, 1, "tomat", 1, 0.05));
-		testList.add(new BatchDTO(2, 1, "tomat", 5, 0.05));
-		testList.add(new BatchDTO(3, 1, "loeg", 1, 0.05));
 
-		vPanel.setHeight("328px");
-		vPanel.add(dbar);
-		dbar.addStyleName("dbar");
-		//justeres for at skabe mere "luft" under baren
-		dbar.setHeight("120px");
-		vPanel.add(vPanel2);
+		vPanel.setWidth("100%");
+	    vPanel.setHeight("100%");
+	    vPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+	    vPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+	    vPanel.add(dbar);
+	    dbar.addStyleName("dbar");
+	    dbar.setHeight("120px");
+	    vPanel.add(vPanel2);
 		vPanel2.add(hPanel1);
 		vPanel2.add(hPanel2);
 		vPanel2.setBorderWidth(2);
@@ -74,7 +69,7 @@ public class BatchWeightView extends Composite{
 		vPanel2.setStyleName("DVP2");
 
 		hPanel1.add(ft);
-		ft.setWidth("555px");
+		ft.setWidth("474px");
 		ft.setWidget(1, 0, prdName);
 		ft.setWidget(1, 1, batchID);		
 		ft.setWidget(1, 2, wData);
@@ -97,9 +92,8 @@ public class BatchWeightView extends Composite{
 			@Override
 			public void onFailure(Throwable caught) {
 				hPanel2.clear();
-				errorLabel1.setText("Failed to access database");
+				errorLabel1.setText("Failed to access batchlist");
 				hPanel2.add(errorLabel1);
-				//Window.alert("Failed to access database: "+caught.getMessage());
 			}
 			@Override
 			public void onSuccess(List<BatchDTO> result) {
@@ -114,8 +108,6 @@ public class BatchWeightView extends Composite{
 					public String getValue(BatchDTO object) {
 						return Integer.toString(object.getBatch_id());
 					}
-
-
 				};
 				batchTable.addColumn(IDColumn, "Batch ID");
 
@@ -125,8 +117,6 @@ public class BatchWeightView extends Composite{
 					public String getValue(BatchDTO object) {
 						return object.getRaavare_navn();
 					}
-
-
 				};
 				batchTable.addColumn(raaNavnColumn, "Raavare");
 
@@ -136,8 +126,6 @@ public class BatchWeightView extends Composite{
 					public String getValue(BatchDTO object) {
 						return Integer.toString(object.getRaavare_id());
 					}
-
-
 				};
 				batchTable.addColumn(raavareIDColumn, "Raavare ID");
 
@@ -147,8 +135,6 @@ public class BatchWeightView extends Composite{
 					public String getValue(BatchDTO object) {
 						return Double.toString(object.getBatchweight());
 					}
-
-
 				};
 				batchTable.addColumn(baWghtColumn, "Batch Weight");
 				batchTable.setStyleName("H2");
@@ -158,8 +144,6 @@ public class BatchWeightView extends Composite{
 					public String getValue(BatchDTO object) {
 						return Double.toString(object.getTolerance());
 					}
-
-
 				};
 				batchTable.addColumn(toleranceColumn, "Tolerance");
 
@@ -180,7 +164,6 @@ public class BatchWeightView extends Composite{
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
 
 						refreshIndicator(c);
-
 					}
 				});
 
@@ -198,22 +181,23 @@ public class BatchWeightView extends Composite{
 
 			@Override
 			public void onFailure(Throwable caught) {
+				hPanel2.clear();
 				if(caught.getMessage().equals("Weight Overload")) {
 					SIDataBox.setText("N/A");
 					refreshIndicator(c);
 				}else{
-					Window.alert("Error accesing weight" + caught.getMessage());
-
+					errorLabel1.setText("Error accesing weight");
+					hPanel2.add(errorLabel1);
 				}
 			}
 			
 			@Override
 			public void onSuccess(Double result) {
+				hPanel2.clear();
 				SIDataBox.setText(Double.toString(result));
 				dbar.setIndicator(result);
 				refreshIndicator(c);
 			}	
 		});
-	
 	}
 }

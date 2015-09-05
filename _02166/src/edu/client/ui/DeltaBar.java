@@ -17,7 +17,7 @@ public class DeltaBar extends Composite {
 	private double upperWeightBound = 211.0;
 	private double a_w;
 	private double b_w;
-	//hÃ¸jden angivet i pixels
+	//højden angivet i pixels
 	private static final double HEIGHT = 37;
 	private static final double TOTALPIXELS = 536;
 	private double pxPrUnit;
@@ -45,7 +45,6 @@ public class DeltaBar extends Composite {
 		layoutPanel.add(layoutPanel_1);
 		layoutPanel_2.setStyleName("layoutPanel1");
 		layoutPanel.add(layoutPanel_2);
-
 
 		layoutPanel_3.setStyleName("layoutPanel1");
 		layoutPanel.add(layoutPanel_3);
@@ -113,7 +112,7 @@ public class DeltaBar extends Composite {
 		upperWeightBound = (upper_w - a_w)*pxPrUnit;
 		
 		BigDecimal bd;
-		//grÃ¦nsevÃ¦rdierne rundes af til 2 decimaler
+		//grænseværdierne rundes af til 2 decimaler
 		bd = new BigDecimal(a_w).setScale(2, RoundingMode.HALF_UP);
 		a_w = bd.doubleValue();
 		bd = new BigDecimal(b_w).setScale(2, RoundingMode.HALF_UP);

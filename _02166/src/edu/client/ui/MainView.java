@@ -38,7 +38,6 @@ public class MainView extends Composite implements WeightView.Callback,
 				hPanel.clear();
 				errorLabel1.setText("Der kunne ikke skabes forbindelse til vægten.");
 				hPanel.add(errorLabel1);
-				//Window.alert("Der kunne ikke skabes forbindelse til vÃ¦gten.");
 				System.out.println("No connection established :(");
 			}
 
@@ -87,7 +86,7 @@ public class MainView extends Composite implements WeightView.Callback,
 		BatchWeightView bWView = new BatchWeightView(this);
 		content.add(bWView);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-265, Window.getClientHeight()/16);
+		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-280, Window.getClientHeight()/16);
 
 	}
 
