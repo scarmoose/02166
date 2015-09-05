@@ -14,7 +14,7 @@ import edu.shared.DALException;
 
 public class ASE extends RemoteServiceServlet implements edu.server.interfaces.IASE, IASEService {
 
-	
+
 	/**
 	 * 
 	 */
@@ -26,24 +26,14 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 	private double brutto;
 	private double tara;
 	private double netto;
-
-
-	//------------------------------------
-	//Vægtens globale IP
-	//62.79.16.17
-	//
-	//Vægtens lokale IP
-	//169.254.2.2
-	//------------------------------------
-
 	private static String host = "62.79.16.17";
 	private static int port = 8000;
-	
+
 	/**
 	 * connects to the specified host. 
 	 * if a connection is already made, nothing is done.
 	 */
-	
+
 	@Override
 	public void connect() throws UnknownHostException, IOException {
 
@@ -54,7 +44,7 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 		out = new DataOutputStream(sock.getOutputStream());
 
 	}
-	
+
 	/**
 	 * Waits for the weight to stabilize, then returns the load in kg.
 	 */
@@ -66,11 +56,11 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 		brutto = Double.parseDouble(response.substring(3,response.length()-2).trim());
 		return returnNetto();
 	}
-	
+
 	/**
 	 * Returns the current unstabilized load in kg.
 	 */
-	
+
 	@Override
 	public double getSIWeight() throws IOException, DALException {
 		out.writeBytes("SI\r\n");
@@ -84,7 +74,7 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 		return weight;
 
 	}
-	
+
 	/**
 	 * Tares the weight stores in ASE. Does NOT tare the actual weight.
 	 */
@@ -93,12 +83,12 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 	public void tara() throws Exception {
 		tara = brutto;	
 	}
-	
+
 	/**
 	 * calculates the current netto load.
 	 * @return netto weight
 	 */
-	
+
 	public double returnNetto() {
 		return netto = (brutto - tara);
 	}

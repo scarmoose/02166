@@ -61,7 +61,6 @@ public class WeightView extends Composite {
 							hPanel3.clear();
 							errorLabel1.setText("An error occured");
 							hPanel2.add(errorLabel1);
-							//Window.alert("An error occured: " + caught.getMessage());
 						}
 
 						@Override
@@ -92,7 +91,6 @@ public class WeightView extends Composite {
 							hPanel3.clear();
 							errorLabel1.setText("An error occured");
 							hPanel2.add(errorLabel1);
-							//Window.alert("An error occured: " + caught.getMessage());
 						}
 						@Override
 						public void onSuccess(Void result) {
@@ -104,7 +102,6 @@ public class WeightView extends Composite {
 									hPanel3.clear();
 									errorLabel1.setText("An error occured");
 									hPanel2.add(errorLabel1);
-									//Window.alert("An error occured: " + caught.getMessage());
 								}
 
 								@Override

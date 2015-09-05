@@ -20,7 +20,6 @@ public class _02166 implements EntryPoint {
 			main = new MainView();
 			RootPanel.get().add(main);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

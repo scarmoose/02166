@@ -26,7 +26,7 @@ public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
 	private HorizontalPanel hPanel2 = new HorizontalPanel();
-	
+
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
 	private Label prdName = new Label("Product Name");
@@ -43,9 +43,9 @@ public class BatchWeightView extends Composite{
 	private List<BatchDTO> batchList;
 	private DeltaBar dbar = new DeltaBar();
 	Boolean running;
-	
+
 	ArrayList<BatchDTO> testList = new ArrayList<BatchDTO>();
-	
+
 	public interface Callback{
 		public IASEServiceAsync getASEService();
 		public IBatchServiceAsync getBatchService();
@@ -54,7 +54,7 @@ public class BatchWeightView extends Composite{
 
 	public BatchWeightView(final Callback c) throws Exception {
 		initWidget(vPanel);
-		
+
 		testList.add(new BatchDTO(1, 1, "tomat", 1, 0.05));
 		testList.add(new BatchDTO(2, 1, "tomat", 5, 0.05));
 		testList.add(new BatchDTO(3, 1, "loeg", 1, 0.05));
@@ -162,10 +162,9 @@ public class BatchWeightView extends Composite{
 
 				};
 				batchTable.addColumn(toleranceColumn, "Tolerance");
-
 				final SingleSelectionModel<BatchDTO> selectionModel = new SingleSelectionModel<BatchDTO>();
-
 				batchTable.setSelectionModel(selectionModel);
+				
 				selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
 					/*
 					 * Det er vist et problem at getSIData kaldes IGEN onSelectionChange uden at stoppe det gamle rekursive kald.
@@ -176,11 +175,8 @@ public class BatchWeightView extends Composite{
 						productName.setText(selected.getRaavare_navn());
 						batchIDBox.setText(""+selected.getBatch_id());
 						batchData.setText("" + selected.getBatchweight());
-						
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
-
 						refreshIndicator(c);
-
 					}
 				});
 
@@ -203,10 +199,9 @@ public class BatchWeightView extends Composite{
 					refreshIndicator(c);
 				}else{
 					Window.alert("Error accesing weight" + caught.getMessage());
-
 				}
 			}
-			
+
 			@Override
 			public void onSuccess(Double result) {
 				SIDataBox.setText(Double.toString(result));
@@ -214,6 +209,5 @@ public class BatchWeightView extends Composite{
 				refreshIndicator(c);
 			}	
 		});
-	
 	}
 }
