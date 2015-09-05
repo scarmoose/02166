@@ -1,6 +1,6 @@
 package edu.client.ui;
 
-import com.google.gwt.core.shared.GWT;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AbsolutePanel;
@@ -36,7 +36,7 @@ public class MainView extends Composite implements WeightView.Callback,
 			@Override
 			public void onFailure(Throwable caught) {
 				hPanel.clear();
-				errorLabel1.setText("Der kunne ikke skabes forbindelse til vægten.");
+				errorLabel1.setText("Der kunne ikke skabes forbindelse til vï¿½gten.");
 				hPanel.add(errorLabel1);
 				System.out.println("No connection established :(");
 			}
@@ -58,10 +58,10 @@ public class MainView extends Composite implements WeightView.Callback,
 
 	}
 
-	//----------------------------------------
-	// Methods for opening the different views
-	//----------------------------------------
-	
+	/**
+	 * Methods for opening the different views
+	 * @throws Exception
+	 */
 	public void openStykWeight() throws Exception {
 		content.clear();
 		UnitWeightView coin = new UnitWeightView(this);

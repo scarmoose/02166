@@ -26,7 +26,7 @@ public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
 	private HorizontalPanel hPanel2 = new HorizontalPanel();
-	
+
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
 	private Label prdName = new Label("Product Name");
@@ -42,8 +42,7 @@ public class BatchWeightView extends Composite{
 
 	private List<BatchDTO> batchList;
 	private DeltaBar dbar = new DeltaBar();
-	
-		public interface Callback{
+	public interface Callback{
 		public IASEServiceAsync getASEService();
 		public IBatchServiceAsync getBatchService();
 		public void openBatchWeightView() throws Exception;
@@ -51,7 +50,6 @@ public class BatchWeightView extends Composite{
 
 	public BatchWeightView(final Callback c) throws Exception {
 		initWidget(vPanel);
-
 		vPanel.setWidth("100%");
 	    vPanel.setHeight("100%");
 	    vPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
@@ -146,10 +144,9 @@ public class BatchWeightView extends Composite{
 					}
 				};
 				batchTable.addColumn(toleranceColumn, "Tolerance");
-
 				final SingleSelectionModel<BatchDTO> selectionModel = new SingleSelectionModel<BatchDTO>();
-
 				batchTable.setSelectionModel(selectionModel);
+				
 				selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
 					/*
 					 * Det er vist et problem at getSIData kaldes IGEN onSelectionChange uden at stoppe det gamle rekursive kald.
@@ -160,9 +157,7 @@ public class BatchWeightView extends Composite{
 						productName.setText(selected.getRaavare_navn());
 						batchIDBox.setText(""+selected.getBatch_id());
 						batchData.setText("" + selected.getBatchweight());
-						
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
-
 						refreshIndicator(c);
 					}
 				});
@@ -187,10 +182,9 @@ public class BatchWeightView extends Composite{
 					refreshIndicator(c);
 				}else{
 					errorLabel1.setText("Error accesing weight");
-					hPanel2.add(errorLabel1);
-				}
+					hPanel2.add(errorLabel1);		}
 			}
-			
+
 			@Override
 			public void onSuccess(Double result) {
 				hPanel2.clear();
