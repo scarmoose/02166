@@ -65,8 +65,8 @@ public class UnitWeightView extends Composite {
 						@Override
 						public void onFailure(Throwable caught) {
 							hPanel3.clear();hPanel4.clear();
-							errorLabel1.setText("Der er fejl på vægten.");
-							errorLabel2.setText("Tjek eventuelt om maksbelastningen er overskredet");
+							errorLabel1.setText("An error occured");
+							errorLabel2.setText("There might be an overload on the weight.");
 							hPanel3.add(errorLabel1);
 							hPanel4.add(errorLabel2);
 						}
@@ -76,7 +76,7 @@ public class UnitWeightView extends Composite {
 						double units = Math.round(result/unitW);
 						if(units < 0){
 							hPanel3.clear();hPanel4.clear();
-							errorLabel1.setText("Der er mindre på vægten end ved kalibreringen");
+							errorLabel1.setText("There are less units on the weight than before calibration");
 							hPanel3.add(errorLabel1);
 							
 						}
@@ -102,8 +102,8 @@ public class UnitWeightView extends Composite {
 						@Override
 						public void onFailure(Throwable caught) {
 							hPanel3.clear();hPanel4.clear();
-							errorLabel1.setText("Der er fejl på vægten.");
-							errorLabel2.setText("Tjek eventuelt om maksbelastningen er overskredet");
+							errorLabel1.setText("An error occured");
+							errorLabel2.setText("There might be an overload on the weight.");
 							hPanel3.add(errorLabel1);
 							hPanel4.add(errorLabel2);
 							
@@ -116,7 +116,7 @@ public class UnitWeightView extends Composite {
 								antal = Integer.parseInt(initBox.getText());
 								if(antal<1 || result == 0){
 									hPanel3.clear();hPanel4.clear();
-									errorLabel1.setText("Ved kalibrering skal der være mere end 1 af produktet");
+									errorLabel1.setText("When calibrating, there need to be more than 1 unit on the weight.");
 									hPanel3.add(errorLabel1);
 									
 								}
@@ -128,7 +128,7 @@ public class UnitWeightView extends Composite {
 								}
 							} catch (NumberFormatException e) {
 								hPanel3.clear();hPanel4.clear();
-								errorLabel1.setText("Antallet skal være i heltal");
+								errorLabel1.setText("The amount needs to be an integer");
 								hPanel3.add(errorLabel1);
 							}
 						}
