@@ -56,7 +56,7 @@ public class BatchWeightView extends Composite{
 	    vPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 	    vPanel.add(dbar);
 	    dbar.addStyleName("dbar");
-	    dbar.setHeight("120px");
+	    dbar.setHeight("60px");
 	    vPanel.add(vPanel2);
 		vPanel2.add(hPanel1);
 		vPanel2.add(hPanel2);
