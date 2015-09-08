@@ -76,7 +76,7 @@ public class UnitWeightView extends Composite {
 						double units = Math.round(result/unitW);
 						if(units < 0){
 							hPanel3.clear();hPanel4.clear();
-							errorLabel1.setText("There are less units on the weight than before calibration");
+							errorLabel1.setText("There at least 1 unit on the weight than before calibration");
 							hPanel3.add(errorLabel1);
 							
 						}
