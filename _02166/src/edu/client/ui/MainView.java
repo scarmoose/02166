@@ -78,7 +78,7 @@ public class MainView extends Composite implements WeightView.Callback,
 		BatchWeightView bWView = new BatchWeightView(this);
 		content.add(bWView);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-265, Window.getClientHeight()/16);
+		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-265, (Window.getClientHeight()/16)+40);
 
 	}
 

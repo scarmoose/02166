@@ -1,7 +1,6 @@
 package edu.client.ui;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 
 import com.google.gwt.dom.client.Style.Unit;
@@ -39,7 +38,7 @@ public class DeltaBar extends Composite {
 		hPanel.add(layoutPanel);
 		hPanel.add(l2);
 		layoutPanel.setStyleName("layoutPanel0");
-		layoutPanel.setSize("536px", "37px");
+		layoutPanel.setSize(TOTALPIXELS+"px", HEIGHT+"px");
 
 		layoutPanel_1.setStyleName("layoutPanel2");
 		layoutPanel.add(layoutPanel_1);
@@ -80,8 +79,10 @@ public class DeltaBar extends Composite {
 	public void setIndicator(double w_input) {
 		//hvis vægten er under barens nedre grænse, står viseren blot på grænsen.
 		if(w_input < a_w) weightIndicator = 0.0;
+		
 		//det samme hvis den er over den være grænse
 		else if(w_input > b_w) weightIndicator = TOTALPIXELS;
+		
 		//ellers vises den aktuelle belastning
 		else weightIndicator = (w_input - a_w) * pxPrUnit;
 		

@@ -23,8 +23,9 @@ import edu.shared.BatchDTO;
 
 public class BatchWeightView extends Composite{
 	private VerticalPanel vPanel = new VerticalPanel();
-	private VerticalPanel vPanel2 = new VerticalPanel();
+//	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
+	private Label errorLabel = new Label("Error up in dis shit");
 	
 	private FlexTable ft = new FlexTable();
 	private FlexTable ft2 = new FlexTable();
@@ -56,19 +57,21 @@ public class BatchWeightView extends Composite{
 		testList.add(new BatchDTO(1, 1, "tomat", 1, 0.05));
 		testList.add(new BatchDTO(2, 1, "tomat", 5, 0.05));
 		testList.add(new BatchDTO(3, 1, "loeg", 1, 0.05));
-
-		vPanel.setHeight("328px");
+	
+		vPanel.add(errorLabel);
+//		vPanel.setHeight("328px");
 		vPanel.add(dbar);
 		dbar.addStyleName("dbar");
 		//justeres for at skabe mere "luft" under baren
-		dbar.setHeight("120px");
-		vPanel.add(vPanel2);
-		vPanel2.add(hPanel1);
-		vPanel2.setBorderWidth(2);
+		dbar.setHeight("60px");
+//		vPanel.
+//		vPanel.add(vPanel2);
+		vPanel.add(hPanel1);
+		vPanel.setBorderWidth(2);
 		hPanel1.setHeight("52px");
-		vPanel2.add(ft2);
+		vPanel.add(ft2);
 		ft2.setWidth("550");
-		vPanel2.setStyleName("DVP2");
+		vPanel.setStyleName("DVP2");
 
 		hPanel1.add(ft);
 		ft.setWidth("555px");
@@ -76,10 +79,14 @@ public class BatchWeightView extends Composite{
 		ft.setWidget(1, 1, batchID);		
 		ft.setWidget(1, 2, wData);
 		ft.setWidget(1, 3, SIData);
+		productName.setEnabled(false);
 		ft.setWidget(2, 0, productName);
 		productName.setWidth("");
+		batchIDBox.setEnabled(false);
 		ft.setWidget(2, 1, batchIDBox);
+		batchData.setEnabled(false);
 		ft.setWidget(2, 2, batchData);
+		SIDataBox.setEnabled(false);
 		ft.setWidget(2, 3, SIDataBox);
 		SIDataBox.setWidth("128px");
 
