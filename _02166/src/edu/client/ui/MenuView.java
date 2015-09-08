@@ -4,16 +4,22 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 
 public class MenuView extends Composite {
 	private HorizontalPanel hPanel = new HorizontalPanel();
-
+	
 
 	public MenuView(final MainView main){
 		initWidget(this.hPanel);
 		this.hPanel.setBorderWidth(2);
-
+		hPanel.setWidth("100%");
+	    hPanel.setHeight("100%");
+	    hPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+	    hPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+	    
 		/**
 		 * Button-functionality:
 		 * weightBtn - opening WeightView

@@ -18,10 +18,12 @@ public class WeightView extends Composite {
 	private VerticalPanel vPanel = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
 	private HorizontalPanel hPanel2 = new HorizontalPanel();
+	private HorizontalPanel hPanel3 = new HorizontalPanel();
 	private Label weightLabel = new Label("Netto");
 	private Button getWeightButton;
 	private Button taraWeightButton;
-
+	private Label errorLabel1 = new Label();
+	
 	public interface Callback{
 		public IASEServiceAsync getASEService();
 	}
@@ -37,6 +39,7 @@ public class WeightView extends Composite {
 		vPanel.add(weightLabel);
 		vPanel.add(hPanel2);
 		vPanel.add(hPanel1);
+		vPanel.add(hPanel3);
 		hPanel1.addStyleName("WHP1");
 		hPanel2.addStyleName("WHP2");
 		
@@ -55,11 +58,14 @@ public class WeightView extends Composite {
 
 						@Override
 						public void onFailure(Throwable caught) {
-							Window.alert("An error occured: " + caught.getMessage());
+							hPanel3.clear();
+							errorLabel1.setText("An error occured");
+							hPanel2.add(errorLabel1);
 						}
 
 						@Override
 						public void onSuccess(Double result) {
+							hPanel3.clear();
 							weightLabel.setText("Netto: " + result + " kg");
 						}
 					});
@@ -82,19 +88,25 @@ public class WeightView extends Composite {
 					c.getASEService().tara(new AsyncCallback<Void>(){
 						@Override
 						public void onFailure(Throwable caught) {
-							Window.alert("An error occured: " + caught.getMessage());
+							hPanel3.clear();
+							errorLabel1.setText("An error occured");
+							hPanel2.add(errorLabel1);
 						}
 						@Override
 						public void onSuccess(Void result) {
+							hPanel3.clear();
 							c.getASEService().getSWeight(new AsyncCallback<Double>(){
 
 								@Override
 								public void onFailure(Throwable caught) {
-									Window.alert("An error occured: " + caught.getMessage());
+									hPanel3.clear();
+									errorLabel1.setText("An error occured");
+									hPanel2.add(errorLabel1);
 								}
 
 								@Override
 								public void onSuccess(Double result) {
+									hPanel3.clear();
 									weightLabel.setText("Netto: " + result + " kg");
 								}
 							});
