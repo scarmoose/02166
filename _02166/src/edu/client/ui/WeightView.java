@@ -58,14 +58,14 @@ public class WeightView extends Composite {
 
 						@Override
 						public void onFailure(Throwable caught) {
-							hPanel3.clear();
+							hPanel2.clear();
 							errorLabel1.setText("An error occured");
 							hPanel2.add(errorLabel1);
 						}
 
 						@Override
 						public void onSuccess(Double result) {
-							hPanel3.clear();
+							hPanel2.clear();
 							weightLabel.setText("Netto: " + result + " kg");
 						}
 					});
@@ -88,25 +88,25 @@ public class WeightView extends Composite {
 					c.getASEService().tara(new AsyncCallback<Void>(){
 						@Override
 						public void onFailure(Throwable caught) {
-							hPanel3.clear();
+							hPanel2.clear();
 							errorLabel1.setText("An error occured");
 							hPanel2.add(errorLabel1);
 						}
 						@Override
 						public void onSuccess(Void result) {
-							hPanel3.clear();
+							hPanel2.clear();
 							c.getASEService().getSWeight(new AsyncCallback<Double>(){
 
 								@Override
 								public void onFailure(Throwable caught) {
-									hPanel3.clear();
+									hPanel2.clear();
 									errorLabel1.setText("An error occured");
 									hPanel2.add(errorLabel1);
 								}
 
 								@Override
 								public void onSuccess(Double result) {
-									hPanel3.clear();
+									hPanel2.clear();
 									weightLabel.setText("Netto: " + result + " kg");
 								}
 							});

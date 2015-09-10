@@ -1,2 +1,0 @@
-serviceClass: edu.client.service.IMetaService
-path: B359DAE9F643EE3437E63D35EB59BA49.gwt.rpc
