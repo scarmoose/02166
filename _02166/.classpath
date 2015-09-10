@@ -8,5 +8,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/opencsv-3.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-servlet-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/Pede/Documents/DTU/Semester 2/Google Web Toolkit/gwt-2.6.1/gwt-servlet.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

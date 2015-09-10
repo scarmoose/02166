@@ -13,8 +13,6 @@ import edu.client.service.IASEService;
 import edu.client.service.IASEServiceAsync;
 import edu.client.service.IBatchService;
 import edu.client.service.IBatchServiceAsync;
-import edu.client.service.IMetaService;
-import edu.client.service.IMetaServiceAsync;
 
 public class MainView extends Composite implements WeightView.Callback,
 		UnitWeightView.Callback, BatchWeightView.Callback {
@@ -22,7 +20,6 @@ public class MainView extends Composite implements WeightView.Callback,
 	private VerticalPanel content = new VerticalPanel();
 	private MenuView menu;
 	private final IASEServiceAsync ASEservice = GWT.create(IASEService.class);
-	private final IMetaServiceAsync Metaservice = GWT.create(IMetaService.class);
 	private final IBatchServiceAsync BatchService = GWT.create(IBatchService.class);
 	private AbsolutePanel aPanel = new AbsolutePanel();
 	private VerticalPanel vPanel = new VerticalPanel();
