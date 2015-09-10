@@ -56,15 +56,15 @@ public class BatchWeightView extends Composite{
 	    vPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 	    vPanel.add(dbar);
 	    dbar.addStyleName("dbar");
-	    dbar.setHeight("120px");
+	    dbar.setHeight("60px");
 	    vPanel.add(vPanel2);
 		vPanel2.add(hPanel1);
 		vPanel2.add(hPanel2);
 		vPanel2.setBorderWidth(2);
 		hPanel1.setHeight("52px");
-		vPanel2.add(ft2);
+		vPanel.add(ft2);
 		ft2.setWidth("550");
-		vPanel2.setStyleName("DVP2");
+		vPanel.setStyleName("DVP2");
 
 		hPanel1.add(ft);
 		ft.setWidth("474px");
@@ -72,10 +72,14 @@ public class BatchWeightView extends Composite{
 		ft.setWidget(1, 1, batchID);		
 		ft.setWidget(1, 2, wData);
 		ft.setWidget(1, 3, SIData);
+		productName.setEnabled(false);
 		ft.setWidget(2, 0, productName);
 		productName.setWidth("");
+		batchIDBox.setEnabled(false);
 		ft.setWidget(2, 1, batchIDBox);
+		batchData.setEnabled(false);
 		ft.setWidget(2, 2, batchData);
+		SIDataBox.setEnabled(false);
 		ft.setWidget(2, 3, SIDataBox);
 		SIDataBox.setWidth("128px");
 

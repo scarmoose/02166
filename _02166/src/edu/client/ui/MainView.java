@@ -33,7 +33,7 @@ public class MainView extends Composite implements WeightView.Callback,
 			@Override
 			public void onFailure(Throwable caught) {
 				hPanel.clear();
-				errorLabel1.setText("Der kunne ikke skabes forbindelse til v�gten.");
+				errorLabel1.setText("A connection to the weight could not be established.");
 				hPanel.add(errorLabel1);
 				System.out.println("No connection established :(");
 			}
@@ -83,8 +83,7 @@ public class MainView extends Composite implements WeightView.Callback,
 		BatchWeightView bWView = new BatchWeightView(this);
 		content.add(bWView);
 		aPanel.add(content);
-		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-280, Window.getClientHeight()/16);
-
+		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-280, Window.getClientHeight()/16+50);
 	}
 
 
