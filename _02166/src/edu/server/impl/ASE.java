@@ -66,7 +66,7 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 		out.writeBytes("SI\r\n");
 		String response = in.readLine();
 		if(response.startsWith("ES")) {
-			return -1;
+			return 0;
 		}else if(response.startsWith("S +")){
 			throw new DALException("Weight Overload");
 		}
