@@ -167,9 +167,7 @@ public class BatchWeightView extends Composite{
 						batchData.setText("" + selected.getBatchweight());
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
 						c.setRecursiveRunning(true);
-						if(c.isRecursiveRunning()){
-							refreshIndicator(c);	
-						}
+						refreshIndicator(c);
 					}
 				});
 
@@ -190,11 +188,15 @@ public class BatchWeightView extends Composite{
 				hPanel2.clear();
 				if(caught.getMessage().equals("Weight Overload")) {
 					SIDataBox.setText("N/A");
-					refreshIndicator(c);
+					if(c.isRecursiveRunning()){
+						refreshIndicator(c);	
+					}
 				}else{
 					errorLabel1.setText("Error accesing weight");
 					hPanel2.add(errorLabel1);	
-					refreshIndicator(c);
+					if(c.isRecursiveRunning()){
+						refreshIndicator(c);	
+					}
 				}
 			}
 
@@ -203,7 +205,9 @@ public class BatchWeightView extends Composite{
 				hPanel2.clear();
 				SIDataBox.setText(Double.toString(result));
 				dbar.setIndicator(result);
-				refreshIndicator(c);
+				if(c.isRecursiveRunning()){
+					refreshIndicator(c);	
+				}
 			}	
 		});
 	}
