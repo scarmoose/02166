@@ -9,5 +9,7 @@ public interface IASEServiceAsync {
 	void getSIWeight(AsyncCallback<Double> callback);
 	void tara(AsyncCallback<Void> callback);
 	void setBrutto(double brutto, AsyncCallback<Void> callback);
+	void disconnect(AsyncCallback<Void> callback);
+	void reconnect(AsyncCallback<Void> callback); 
 
 }

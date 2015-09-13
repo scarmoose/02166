@@ -2,9 +2,12 @@ package edu.client.ui;
 
 import java.util.List;
 
+import com.google.gwt.event.logical.shared.CloseEvent;
+import com.google.gwt.event.logical.shared.CloseHandler;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
 import com.google.gwt.user.cellview.client.TextColumn;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
@@ -21,7 +24,7 @@ import edu.client.service.IASEServiceAsync;
 import edu.client.service.IBatchServiceAsync;
 import edu.shared.BatchDTO;
 
-public class BatchWeightView extends Composite implements Runnable {
+public class BatchWeightView extends Composite {
 	private VerticalPanel vPanel = new VerticalPanel();
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
@@ -167,21 +170,38 @@ public class BatchWeightView extends Composite implements Runnable {
 						batchData.setText("" + selected.getBatchweight());
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
 						c.setRecursiveRunning(true);
-						try {
-							Thread.sleep(100);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
 						refreshIndicator(c);
 					}
 				});
+				
+				
 
 				batchTable.setRowCount(batchList.size(), true);
 				// Push the data into the widget.
 				batchTable.setRowData(0, batchList);
 				batchTable.redraw();
 				ft2.setWidget(0,0, batchTable);
+				
+				Window.addWindowClosingHandler(new Window.ClosingHandler() {
+				      public void onWindowClosing(Window.ClosingEvent closingEvent) {
+				    	  c.getASEService().disconnect(new AsyncCallback<Void>() {
+
+							@Override
+							public void onFailure(Throwable caught) {
+								// TODO Auto-generated method stub
+								
+							}
+
+							@Override
+							public void onSuccess(Void result) {
+								// TODO Auto-generated method stub
+								
+							}
+				    		  
+				    	  });
+//				        closingEvent.setMessage("Do you really want to leave the page?");
+				      }
+				});
 			}
 		});
 	}
@@ -216,12 +236,5 @@ public class BatchWeightView extends Composite implements Runnable {
 				}
 			}	
 		});
-	}
-
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
 	}
 }

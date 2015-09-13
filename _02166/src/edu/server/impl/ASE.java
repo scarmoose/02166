@@ -44,6 +44,15 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 		out = new DataOutputStream(sock.getOutputStream());
 
 	}
+	
+	public void disconnect() {
+		sock = null;
+	}
+	
+	public void reconnect() throws UnknownHostException, IOException {
+		disconnect();
+		connect();
+	}
 
 	/**
 	 * Waits for the weight to stabilize, then returns the load in kg.
