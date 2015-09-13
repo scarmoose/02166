@@ -50,18 +50,22 @@ public class BatchWeightView extends Composite{
 
 	public BatchWeightView(final Callback c) throws Exception {
 		initWidget(vPanel);
+		
 		vPanel.setWidth("100%");
 	    vPanel.setHeight("100%");
 	    vPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 	    vPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+	    
 	    vPanel.add(dbar);
 	    dbar.addStyleName("dbar");
 	    dbar.setHeight("60px");
+	   
 	    vPanel.add(vPanel2);
 		vPanel2.add(hPanel1);
 		vPanel2.add(hPanel2);
 		vPanel2.setBorderWidth(2);
 		hPanel1.setHeight("52px");
+		
 		vPanel.add(ft2);
 		ft2.setWidth("550");
 		vPanel.setStyleName("DVP2");
@@ -152,10 +156,7 @@ public class BatchWeightView extends Composite{
 				batchTable.setSelectionModel(selectionModel);
 				
 				selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
-					/*
-					 * Det er vist et problem at getSIData kaldes IGEN onSelectionChange uden at stoppe det gamle rekursive kald.
-					 * Se getSIData, der rekursivt kalder sig selv 
-					 */
+					
 					public void onSelectionChange(SelectionChangeEvent event) {
 						BatchDTO selected = selectionModel.getSelectedObject();
 						productName.setText(selected.getRaavare_navn());
