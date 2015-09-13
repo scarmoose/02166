@@ -30,7 +30,8 @@ public class MainView extends Composite implements WeightView.Callback,
 	public MainView() throws Exception {
 		initWidget(aPanel);
 		vPanel.add(hPanel);
-		ASEservice.connect(new AsyncCallback<Void>() {
+		
+		ASEservice.reconnect(new AsyncCallback<Void>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				hPanel.clear();

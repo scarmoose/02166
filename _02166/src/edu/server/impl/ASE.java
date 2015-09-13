@@ -49,7 +49,7 @@ public class ASE extends RemoteServiceServlet implements edu.server.interfaces.I
 		sock = null;
 	}
 	
-	public void reconnect() throws UnknownHostException, IOException {
+	public void reconnect() throws UnknownHostException, IOException, InterruptedException {
 		disconnect();
 		connect();
 	}

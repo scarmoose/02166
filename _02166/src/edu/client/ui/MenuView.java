@@ -86,9 +86,33 @@ public class MenuView extends Composite {
 						
 					});
 				} catch(Exception e) {
-					Window.alert("LOL");
+					//TODO
 				}
 			}
+		});
+		
+		Button connectBtn = new Button("CONNECT", new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				main.getASEService().connect(new AsyncCallback<Void>() {
+
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert("Failure to connect");
+						
+					}
+
+					@Override
+					public void onSuccess(Void result) {
+						Window.alert("Successfully connected");
+						
+					}
+					
+				});
+				
+			}
+			
 		});
 		
 		/**
@@ -100,16 +124,19 @@ public class MenuView extends Composite {
 		hPanel.add(unitWBtn);
 		hPanel.add(deltaWBtn);
 		hPanel.add(disconnectBtn);
+		hPanel.add(connectBtn);
 	
 		hPanel.setCellHeight(weightBtn, "60px");
 		hPanel.setCellHeight(unitWBtn, "60px");
 		hPanel.setCellHeight(deltaWBtn, "60px");
 		hPanel.setCellHeight(disconnectBtn, "60px");
+		hPanel.setCellHeight(connectBtn, "60px");
 	
 		hPanel.setCellWidth(weightBtn, "120px");
 		hPanel.setCellWidth(unitWBtn, "120px");
 		hPanel.setCellWidth(deltaWBtn, "120px");
 		hPanel.setCellWidth(disconnectBtn, "120px");
+		hPanel.setCellWidth(connectBtn, "120px");
 
 		
 	}

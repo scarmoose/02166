@@ -16,7 +16,7 @@ public interface IASEService extends RemoteService{
 	double getSIWeight() throws IOException, DALException;
 	void tara()throws Exception;
 	void disconnect(); 
-	void reconnect() throws IOException;
+	void reconnect() throws IOException, InterruptedException;
 	
 
 }
