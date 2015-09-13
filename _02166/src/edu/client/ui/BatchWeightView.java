@@ -21,7 +21,7 @@ import edu.client.service.IASEServiceAsync;
 import edu.client.service.IBatchServiceAsync;
 import edu.shared.BatchDTO;
 
-public class BatchWeightView extends Composite{
+public class BatchWeightView extends Composite implements Runnable {
 	private VerticalPanel vPanel = new VerticalPanel();
 	private VerticalPanel vPanel2 = new VerticalPanel();
 	private HorizontalPanel hPanel1 = new HorizontalPanel();
@@ -65,7 +65,7 @@ public class BatchWeightView extends Composite{
 	    vPanel.add(vPanel2);
 		vPanel2.add(hPanel1);
 		vPanel2.add(hPanel2);
-		vPanel2.setBorderWidth(2);
+//		vPanel2.setBorderWidth(2);
 		hPanel1.setHeight("52px");
 		
 		vPanel.add(ft2);
@@ -167,6 +167,12 @@ public class BatchWeightView extends Composite{
 						batchData.setText("" + selected.getBatchweight());
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
 						c.setRecursiveRunning(true);
+						try {
+							Thread.sleep(100);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						refreshIndicator(c);
 					}
 				});
@@ -210,5 +216,12 @@ public class BatchWeightView extends Composite{
 				}
 			}	
 		});
+	}
+
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 }
