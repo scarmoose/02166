@@ -25,6 +25,7 @@ public class MainView extends Composite implements WeightView.Callback,
 	private VerticalPanel vPanel = new VerticalPanel();
 	private HorizontalPanel hPanel = new HorizontalPanel();
 	private Label errorLabel1 = new Label();
+	private boolean recursiveRunning = true;
 	
 	public MainView() throws Exception {
 		initWidget(aPanel);
@@ -60,6 +61,7 @@ public class MainView extends Composite implements WeightView.Callback,
 	 * @throws Exception
 	 */
 	public void openStykWeight() throws Exception {
+		setRecursiveRunning(false);
 		content.clear();
 		UnitWeightView coin = new UnitWeightView(this);
 		content.add(coin);
@@ -69,6 +71,7 @@ public class MainView extends Composite implements WeightView.Callback,
 
 	
 	public void openWeightView() throws Exception {
+		setRecursiveRunning(false);
 		content.clear();
 		WeightView weight = new WeightView(this);
 		content.add(weight);
@@ -95,4 +98,11 @@ public class MainView extends Composite implements WeightView.Callback,
 		return BatchService;
 	}
 
+	public boolean isRecursiveRunning() {
+		return recursiveRunning;
+	}
+
+	public void setRecursiveRunning(boolean recursiveRunning) {
+		this.recursiveRunning = recursiveRunning;
+	}
 }

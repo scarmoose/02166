@@ -46,6 +46,8 @@ public class BatchWeightView extends Composite{
 		public IASEServiceAsync getASEService();
 		public IBatchServiceAsync getBatchService();
 		public void openBatchWeightView() throws Exception;
+		public void setRecursiveRunning(boolean running);
+		public boolean isRecursiveRunning();
 	}
 
 	public BatchWeightView(final Callback c) throws Exception {
@@ -158,12 +160,16 @@ public class BatchWeightView extends Composite{
 				selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
 					
 					public void onSelectionChange(SelectionChangeEvent event) {
+						c.setRecursiveRunning(false);
 						BatchDTO selected = selectionModel.getSelectedObject();
 						productName.setText(selected.getRaavare_navn());
 						batchIDBox.setText(""+selected.getBatch_id());
 						batchData.setText("" + selected.getBatchweight());
 						dbar.boundarySetup(selected.getBatchweight(), selected.getTolerance());
-						refreshIndicator(c);
+						c.setRecursiveRunning(true);
+						if(c.isRecursiveRunning()){
+							refreshIndicator(c);	
+						}
 					}
 				});
 
@@ -187,7 +193,9 @@ public class BatchWeightView extends Composite{
 					refreshIndicator(c);
 				}else{
 					errorLabel1.setText("Error accesing weight");
-					hPanel2.add(errorLabel1);		}
+					hPanel2.add(errorLabel1);	
+					refreshIndicator(c);
+				}
 			}
 
 			@Override
