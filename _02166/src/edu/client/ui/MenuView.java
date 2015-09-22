@@ -91,28 +91,15 @@ public class MenuView extends Composite {
 			}
 		});
 		
-		Button connectBtn = new Button("CONNECT", new ClickHandler() {
-
+		Button batch2 = new Button("BATCH#2", new ClickHandler(){
 			@Override
-			public void onClick(ClickEvent event) {
-				main.getASEService().connect(new AsyncCallback<Void>() {
-
-					@Override
-					public void onFailure(Throwable caught) {
-						Window.alert("Failure to connect");
-						
-					}
-
-					@Override
-					public void onSuccess(Void result) {
-						Window.alert("Successfully connected");
-						
-					}
-					
-				});
-				
+			public void onClick(ClickEvent even){
+				try{
+					main.openBatchWeight2();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-			
 		});
 		
 		/**
@@ -124,19 +111,19 @@ public class MenuView extends Composite {
 		hPanel.add(unitWBtn);
 		hPanel.add(deltaWBtn);
 		hPanel.add(disconnectBtn);
-		hPanel.add(connectBtn);
+		hPanel.add(batch2);
 	
 		hPanel.setCellHeight(weightBtn, "60px");
 		hPanel.setCellHeight(unitWBtn, "60px");
 		hPanel.setCellHeight(deltaWBtn, "60px");
 		hPanel.setCellHeight(disconnectBtn, "60px");
-		hPanel.setCellHeight(connectBtn, "60px");
+		hPanel.setCellHeight(batch2, "60px");
 	
 		hPanel.setCellWidth(weightBtn, "120px");
 		hPanel.setCellWidth(unitWBtn, "120px");
 		hPanel.setCellWidth(deltaWBtn, "120px");
 		hPanel.setCellWidth(disconnectBtn, "120px");
-		hPanel.setCellWidth(connectBtn, "120px");
+		hPanel.setCellWidth(batch2, "120px");
 
 		
 	}

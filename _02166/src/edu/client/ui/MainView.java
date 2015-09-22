@@ -15,7 +15,7 @@ import edu.client.service.IBatchService;
 import edu.client.service.IBatchServiceAsync;
 
 public class MainView extends Composite implements WeightView.Callback,
-		UnitWeightView.Callback, BatchWeightView.Callback {
+		UnitWeightView.Callback, BatchWeightView.Callback, BatchWeight2.Callback {
 
 	private VerticalPanel content = new VerticalPanel();
 	private MenuView menu;
@@ -91,6 +91,15 @@ public class MainView extends Composite implements WeightView.Callback,
 	}
 
 
+	public void openBatchWeight2() throws Exception {
+		content.clear();
+		BatchWeight2 bwView2 = new BatchWeight2(this);
+		content.add(bwView2);
+		aPanel.add(content);
+		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-280, Window.getClientHeight()/16+50);
+		
+	}
+	
 	public IASEServiceAsync getASEService() {
 		return ASEservice;
 	}
