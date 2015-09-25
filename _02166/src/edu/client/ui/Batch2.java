@@ -31,7 +31,7 @@ public class Batch2 extends Composite {
 	public Batch2(final Callback c) {
 		initWidget(vPanel);
 		dbar = new DeltaBar();
-		error = new Label("Hej jeg er ikke en fejl endnu");
+		error = new Label("Ingen fejl endnu");
 		start = new Button("Start");
 		stop = new Button("Stop");
 		vPanel.add(dbar);
