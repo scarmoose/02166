@@ -110,19 +110,19 @@ public class MenuView extends Composite {
 		hPanel.add(weightBtn);
 		hPanel.add(unitWBtn);
 		hPanel.add(deltaWBtn);
-		hPanel.add(disconnectBtn);
+//		hPanel.add(disconnectBtn);
 		hPanel.add(batch2);
 	
 		hPanel.setCellHeight(weightBtn, "60px");
 		hPanel.setCellHeight(unitWBtn, "60px");
 		hPanel.setCellHeight(deltaWBtn, "60px");
-		hPanel.setCellHeight(disconnectBtn, "60px");
+//		hPanel.setCellHeight(disconnectBtn, "60px");
 		hPanel.setCellHeight(batch2, "60px");
 	
 		hPanel.setCellWidth(weightBtn, "120px");
 		hPanel.setCellWidth(unitWBtn, "120px");
 		hPanel.setCellWidth(deltaWBtn, "120px");
-		hPanel.setCellWidth(disconnectBtn, "120px");
+//		hPanel.setCellWidth(disconnectBtn, "120px");
 		hPanel.setCellWidth(batch2, "120px");
 
 		
