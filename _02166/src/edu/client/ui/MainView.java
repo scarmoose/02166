@@ -85,8 +85,7 @@ public class MainView extends Composite implements WeightView.Callback,
 
 	public void openBatchWeightView() throws Exception {
 		content.clear();
-//		BatchWeightView b = new BatchWeightView(this);
-		Batch2 b = new Batch2(this);
+		BatchWeightView b = new BatchWeightView(this);
 		content.add(b);
 		aPanel.add(content);
 		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-280, Window.getClientHeight()/16+50);
@@ -95,8 +94,8 @@ public class MainView extends Composite implements WeightView.Callback,
 
 	public void openBatchWeight2() throws Exception {
 		content.clear();
-		BatchWeight2 bwView2 = new BatchWeight2(this);
-		content.add(bwView2);
+		Batch2 b = new Batch2(this);
+		content.add(b);
 		aPanel.add(content);
 		aPanel.setWidgetPosition(content, Window.getClientWidth()/2-280, Window.getClientHeight()/16+50);
 		
